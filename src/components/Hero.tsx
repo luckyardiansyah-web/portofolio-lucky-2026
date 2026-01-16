@@ -1,0 +1,226 @@
+'use client';
+
+import React from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Play, MousePointer2 } from 'lucide-react';
+
+const Hero: React.FC = () => {
+  const [currentImageIndex, setCurrentImageIndex] = React.useState(0);
+
+  const profileImages = [
+    "/assets/Lucky.png",
+    "/assets/Lucky2.png",
+    "/assets/Lucky3.png"
+  ];
+
+  React.useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % profileImages.length);
+    }, 5000); // Change every 5 seconds
+    return () => clearInterval(timer);
+  }, []);
+  return (
+    <section className="min-h-screen flex flex-col pt-24 md:pt-32 relative overflow-hidden bg-white dark:bg-gray-950">
+
+      {/* Main Content Area */}
+      <div className="container mx-auto px-6 z-10 flex-grow flex flex-col md:flex-row items-center gap-12 md:gap-20">
+
+        {/* Left Column: Text */}
+        <div className="flex-1 text-center md:text-left relative z-20">
+          {/* "Hello There" Floating Box */}
+          <motion.div
+            initial={{ opacity: 0, y: -20, rotate: -5 }}
+            animate={{ opacity: 1, y: 0, rotate: -5 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="absolute -top-16 left-1/2 -translate-x-1/2 md:left-0 md:translate-x-0 bg-white dark:bg-gray-800 border-2 border-gray-900 dark:border-white px-4 py-2 rounded-lg shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] dark:shadow-[4px_4px_0px_0px_rgba(255,255,255,1)] hidden md:block"
+          >
+            <div className="absolute -left-1.5 -top-1.5 w-3 h-3 bg-blue-600 border border-gray-900" />
+            <div className="absolute -right-1.5 -top-1.5 w-3 h-3 bg-blue-600 border border-gray-900" />
+            <div className="absolute -left-1.5 -bottom-1.5 w-3 h-3 bg-blue-600 border border-gray-900" />
+            <div className="absolute -right-1.5 -bottom-1.5 w-3 h-3 bg-blue-600 border border-gray-900" />
+            <span className="font-bold text-gray-900 dark:text-white">Hello, World!</span>
+          </motion.div>
+
+          <motion.h1
+            className="text-5xl md:text-7xl lg:text-8xl font-bold text-gray-900 dark:text-white leading-[1.1] mb-8"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            I'm <span className="relative inline-block text-blue-800 underline decoration-4 underline-offset-8 decoration-gray-900 dark:decoration-white">Lucky</span>,<br />
+            Ardiansyah<br />
+          </motion.h1>
+
+          <motion.p
+            className="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-lg mx-auto md:mx-0 leading-relaxed"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
+            An Information Technology student blending code and creativity.
+            Focusing on <span className="font-semibold text-gray-900 dark:text-gray-200">Web Development</span>, <span className="font-semibold text-gray-900 dark:text-gray-200">Photography</span>, and <span className="font-semibold text-gray-900 dark:text-gray-200">Design</span>.
+          </motion.p>
+
+          <motion.div
+            className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start items-center"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+          >
+            <a href="#projects" className="group flex items-center gap-3 bg-gray-900 dark:bg-white text-white dark:text-gray-900 px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-800 dark:hover:bg-gray-100 transition-all shadow-xl hover:shadow-2xl">
+              View My Portfolio
+              <span className="bg-blue-500 text-gray-900 rounded-full p-1 group-hover:rotate-90 transition-transform duration-300">
+                <Play size={16} fill="currentColor" />
+              </span>
+            </a>
+            <a href="#contact" className="px-8 py-4 border-2 border-gray-200 dark:border-gray-700 rounded-full font-bold text-gray-900 dark:text-white hover:border-gray-900 dark:hover:border-white transition-colors">
+              Hire Me
+            </a>
+          </motion.div>
+        </div>
+
+        {/* Right Column: Image & Decorations */}
+        <div className="flex-1 relative w-full h-[500px] md:h-[700px] flex items-center justify-center">
+
+          {/* Organic Background Shape */}
+          <motion.div
+            className="absolute inset-0 bg-gradient-to-r from-blue-600 to-[#222281] dark:from-blue-400 dark:to-[#222281]  rounded-[30%_70%_70%_30%/30%_30%_70%_70%] z-0"
+            animate={{
+              borderRadius: [
+                "30% 70% 70% 30% / 30% 30% 70% 70%",
+                "60% 40% 30% 70% / 60% 30% 70% 40%",
+                "30% 70% 70% 30% / 30% 30% 70% 70%"
+              ]
+            }}
+            transition={{
+              duration: 8,
+              repeat: Infinity,
+              repeatType: "reverse"
+            }}
+          />
+
+          {/* Profile Image (Cutout style) */}
+          <motion.div
+            className="relative z-10 w-[90%] md:w-[80%] h-full flex items-end justify-center"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5 }}
+          >
+            {/* Replace with a transparent PNG of yourself for best effect */}
+            <AnimatePresence mode="wait">
+              <motion.img
+                key={currentImageIndex}
+                src={profileImages[currentImageIndex]}
+                alt="Lucky Ardiansyah"
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -20 }}
+                transition={{ duration: 0.5 }}
+                className="absolute bottom-0 h-[100%] w-full object-cover rounded-b-full md:rounded-none mask-image-gradient"
+                style={{ maskImage: 'linear-gradient(to bottom, black 80%, transparent 100%)' }}
+              />
+            </AnimatePresence>
+          </motion.div>
+
+          {/* Floating Badges */}
+          <FloatingBadge
+            text="Full Stack Developer"
+            color="bg-green-100 text-green-800"
+            icon={<MousePointer2 size={16} className="text-green-600" fill="currentColor" />}
+            className="top-20 left-4 md:left-10"
+            delay={0.5}
+          />
+
+          <FloatingBadge
+            text="Photographer"
+            color="bg-purple-100 text-purple-800"
+            icon={<MousePointer2 size={16} className="text-purple-600" fill="currentColor" />}
+            className="bottom-32 right-4 md:right-10"
+            delay={0.7}
+          />
+
+          <FloatingBadge
+            text="UI/UX Designer"
+            color="bg-blue-100 text-blue-800"
+            icon={<MousePointer2 size={16} className="text-blue-600" fill="currentColor" />}
+            className="top-1/2 -right-6 md:-right-12"
+            delay={0.9}
+          />
+
+          <FloatingBadge
+            text="Videographer"
+            color="bg-red-100 text-red-800"
+            icon={<MousePointer2 size={16} className="text-red-600" fill="currentColor" />}
+            className="top-1/2 -left-4 md:-left-10"
+            delay={0.9}
+          />
+
+          {/* Circular Stamp */}
+          <motion.div
+            animate={{ rotate: 360 }}
+            transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+            className="absolute top-10 right-0 md:-right-10 w-24 h-24 md:w-32 md:h-32 bg-gray-900 dark:bg-white rounded-full flex items-center justify-center p-2 z-20 shadow-xl"
+          >
+            <div className="relative w-full h-full flex items-center justify-center">
+              <svg viewBox="0 0 100 100" className="w-full h-full absolute animate-spin-slow">
+                <path
+                  id="textPath"
+                  d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0"
+                  fill="transparent"
+                />
+                <text className="text-[14px] font-bold uppercase tracking-widest fill-white dark:fill-gray-900">
+                  <textPath href="#textPath" startOffset="0%">
+                    Hire Me • Open to Work •
+                  </textPath>
+                </text>
+              </svg>
+              <div className="w-8 h-8 bg-blue-600 rounded-full" />
+            </div>
+          </motion.div>
+        </div>
+      </div>
+
+      {/* Bottom Marquee */}
+      <div className="w-full bg-blue-900 py-6 overflow-hidden scale-105 mt-12 md:mt-0">
+        <motion.div
+          className="flex whitespace-nowrap text-2xl font-black text-white uppercase tracking-wider"
+          animate={{ x: [0, -1000] }}
+          transition={{ repeat: Infinity, ease: "linear", duration: 20 }}
+        >
+          {[...Array(10)].map((_, i) => (
+            <React.Fragment key={i}>
+              <span className="mx-8">Web Development</span>
+              <span className="mx-8 text-white">❋</span>
+              <span className="mx-8">Photography</span>
+              <span className="mx-8 text-white">❋</span>
+              <span className="mx-8">UI/UX Design</span>
+              <span className="mx-8 text-white">❋</span>
+            </React.Fragment>
+          ))}
+        </motion.div>
+      </div>
+    </section>
+  );
+};
+
+const FloatingBadge = ({ text, color, icon, className, delay }: { text: string, color: string, icon: React.ReactNode, className: string, delay: number }) => (
+  <motion.div
+    className={`absolute ${className} z-20`}
+    initial={{ opacity: 0, scale: 0 }}
+    animate={{ opacity: 1, scale: 1 }}
+    transition={{ type: "spring", delay }}
+  >
+    <motion.div
+      animate={{ y: [0, -10, 0] }}
+      transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: delay * 2 }}
+      className={`flex items-center gap-2 px-4 py-2 rounded-full shadow-lg ${color} font-bold text-sm border-2 border-white dark:border-gray-900`}
+    >
+      <div className={`p-1 bg-white rounded-full`}>
+        {icon}
+      </div>
+      {text}
+    </motion.div>
+  </motion.div>
+);
+
+export default Hero;
