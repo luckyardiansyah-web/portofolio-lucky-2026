@@ -1,5 +1,5 @@
 import React from 'react';
-import { Github, Linkedin, Twitter } from 'lucide-react';
+import { Github, Instagram, Linkedin, Twitter } from 'lucide-react';
 
 const Footer = () => {
     return (
@@ -23,7 +23,7 @@ const Footer = () => {
                             <Linkedin size={20} />
                         </a>
                         <a href="#" className="text-gray-500 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                            <Twitter size={20} />
+                            <Instagram size={20} />
                         </a>
                     </div>
                 </div>
