@@ -17,6 +17,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Portfolio Lucky Ardiansyah",
   description: "Portfolio by Lucky Ardiansyah",
+  icons: {
+    icon: "/assets/clover.png",
+  },
 };
 
 export default function RootLayout({

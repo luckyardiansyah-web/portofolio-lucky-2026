@@ -8,19 +8,12 @@ import { twMerge } from 'tailwind-merge';
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
-    const [hidden, setHidden] = useState(false);
     const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
     const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
 
     const { scrollY } = useScroll();
 
     useMotionValueEvent(scrollY, "change", (latest) => {
-        const previous = scrollY.getPrevious() || 0;
-        if (latest > previous && latest > 150) {
-            setHidden(true);
-        } else {
-            setHidden(false);
-        }
         setScrolled(latest > 20);
     });
 
@@ -42,12 +35,6 @@ const Navbar = () => {
 
     return (
         <motion.nav
-            variants={{
-                visible: { y: 0 },
-                hidden: { y: -100 },
-            }}
-            animate={hidden ? "hidden" : "visible"}
-            transition={{ duration: 0.35, ease: "easeInOut" }}
             className={twMerge(
                 'fixed z-50 transition-all duration-300 left-0 right-0 flex justify-center',
                 scrolled ? 'top-4' : 'top-0'

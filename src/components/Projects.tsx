@@ -160,58 +160,56 @@ const Projects: React.FC = () => {
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">Mobile Apps</h2>
           </div>
 
-          <div className="space-y-32">
+          <div className="grid md:grid-cols-2 gap-12 lg:gap-16">
             {mobileProjects.map((project, index) => (
               <motion.div
+                key={index}
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.8 }}
-                key={index}
-                className={`flex flex-col ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} items-center gap-12 lg:gap-20`}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.2 }}
+                className="relative group"
               >
-                {/* Phone Mockup Side */}
-                <div className="flex-1 w-full flex justify-center lg:justify-end">
-                  <div className="relative">
-                    {/* Decorational blobs */}
-                    <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-gradient-to-tr ${index % 2 === 0 ? 'from-purple-200/50 to-blue-200/50 dark:from-purple-900/20 dark:to-blue-900/20' : 'from-pink-200/50 to-orange-200/50 dark:from-pink-900/20 dark:to-orange-900/20'} rounded-full blur-3xl -z-10`} />
+                {/* Decorational Background Blob */}
+                <div
+                  className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[80%] 
+                    bg-gradient-to-br ${index === 0 ? 'from-purple-500/10 to-blue-500/10' : 'from-pink-500/10 to-orange-500/10'} 
+                    rounded-[3rem] blur-3xl -z-10 group-hover:bg-opacity-20 transition-all duration-500`}
+                />
 
-                    <PhoneMockup src={project.image} alt={project.title} className={index % 2 === 0 ? 'lg:mr-10' : 'lg:ml-10'} />
+                {/* Card Content */}
+                <div className="flex flex-col items-center">
+                  {/* 3D Phone Mockup */}
+                  <div className="mb-8 transform group-hover:-translate-y-4 transition-transform duration-500">
+                    <PhoneMockup src={project.image} alt={project.title} />
                   </div>
-                </div>
 
-                {/* Content Side */}
-                <div className="flex-1 text-center lg:text-left">
-                  <motion.div
-                    initial={{ opacity: 0, x: index % 2 === 0 ? 50 : -50 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.2, duration: 0.8 }}
-                  >
-                    <h3 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6">{project.title}</h3>
-                    <p className="text-lg text-gray-600 dark:text-gray-300 mb-8 leading-relaxed max-w-lg mx-auto lg:mx-0">
+                  {/* Project Info */}
+                  <div className="text-center w-full max-w-sm">
+                    <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">{project.title}</h3>
+                    <p className="text-gray-600 dark:text-gray-400 mb-6 line-clamp-2">
                       {project.description}
                     </p>
 
-                    <div className="flex flex-wrap justify-center lg:justify-start gap-3 mb-10">
+                    {/* Tech Stack */}
+                    <div className="flex flex-wrap justify-center gap-2 mb-6">
                       {project.tech.map((t, i) => (
-                        <span key={i} className="px-4 py-2 text-sm font-medium bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full border border-gray-200 dark:border-gray-700">
+                        <span key={i} className="px-3 py-1 text-xs font-semibold bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 rounded-full border border-gray-200 dark:border-gray-700">
                           {t}
                         </span>
                       ))}
                     </div>
 
-                    <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                      <a href={project.liveUrl} className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-gray-900 dark:bg-white text-white dark:text-gray-900 rounded-full font-semibold hover:bg-gray-800 dark:hover:bg-gray-100 transition-all hover:scale-105 active:scale-95 shadow-lg shadow-gray-900/20 dark:shadow-white/20">
+                    {/* Action Buttons */}
+                    <div className="flex items-center justify-center gap-4 opacity-0 transform translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
+                      <a href={project.liveUrl} className="p-3 bg-gray-900 dark:bg-white text-white dark:text-gray-900 rounded-full hover:scale-110 transition-transform shadow-lg" title="View App">
                         <Smartphone size={20} />
-                        Download App
                       </a>
-                      <a href={project.githubUrl} className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white dark:bg-gray-900/50 text-gray-900 dark:text-white rounded-full font-semibold border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-900 transition-all hover:scale-105 active:scale-95">
+                      <a href={project.githubUrl} className="p-3 bg-white dark:bg-gray-800 text-gray-900 dark:text-white border border-gray-200 dark:border-gray-700 rounded-full hover:scale-110 transition-transform shadow-lg" title="Source Code">
                         <Github size={20} />
-                        Source Code
                       </a>
                     </div>
-                  </motion.div>
+                  </div>
                 </div>
               </motion.div>
             ))}

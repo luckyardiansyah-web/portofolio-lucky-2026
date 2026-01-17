@@ -57,8 +57,8 @@ const Hero: React.FC = () => {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            An Information Technology student blending code and creativity.
-            Focusing on <span className="font-semibold text-gray-900 dark:text-gray-200">Web Development</span>, <span className="font-semibold text-gray-900 dark:text-gray-200">Photography</span>, and <span className="font-semibold text-gray-900 dark:text-gray-200">Design</span>.
+            An Information Technology student at Brawijaya University with interests in the creative, IT, and digital fields. <br />
+            Focusing on <span className="font-semibold text-gray-900 dark:text-gray-200">Web Development</span>, <span className="font-semibold text-gray-900 dark:text-gray-200">UI/UX Design</span>, <span className="font-semibold text-gray-900 dark:text-gray-200">Photography</span>, and <span className="font-semibold text-gray-900 dark:text-gray-200">Videography</span>.
           </motion.p>
 
           <motion.div
@@ -125,8 +125,8 @@ const Hero: React.FC = () => {
           {/* Floating Badges */}
           <FloatingBadge
             text="Full Stack Developer"
-            color="bg-green-100 text-green-800"
-            icon={<MousePointer2 size={16} className="text-green-600" fill="currentColor" />}
+            color="bg-purple-100 text-purple-800"
+            icon={<MousePointer2 size={16} className="text-purple-600" fill="currentColor" />}
             className="top-20 left-4 md:left-10"
             delay={0.5}
           />
@@ -143,14 +143,14 @@ const Hero: React.FC = () => {
             text="UI/UX Designer"
             color="bg-blue-100 text-blue-800"
             icon={<MousePointer2 size={16} className="text-blue-600" fill="currentColor" />}
-            className="top-1/2 -right-6 md:-right-12"
+            className="top-1/3 -right-6 md:-right-12"
             delay={0.9}
           />
 
           <FloatingBadge
             text="Videographer"
-            color="bg-red-100 text-red-800"
-            icon={<MousePointer2 size={16} className="text-red-600" fill="currentColor" />}
+            color="bg-violet-100 text-violet-800"
+            icon={<MousePointer2 size={16} className="text-violet-600" fill="currentColor" />}
             className="top-1/2 -left-4 md:-left-10"
             delay={0.9}
           />
@@ -193,7 +193,11 @@ const Hero: React.FC = () => {
               <span className="mx-8 text-white">❋</span>
               <span className="mx-8">Photography</span>
               <span className="mx-8 text-white">❋</span>
+              <span className="mx-8">Videography</span>
+              <span className="mx-8 text-white">❋</span>
               <span className="mx-8">UI/UX Design</span>
+              <span className="mx-8 text-white">❋</span>
+              <span className="mx-8">Content Creation</span>
               <span className="mx-8 text-white">❋</span>
             </React.Fragment>
           ))}
