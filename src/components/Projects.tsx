@@ -4,6 +4,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Github, ExternalLink, Smartphone, Monitor } from 'lucide-react';
 import ProjectGallery, { GalleryItem } from './ProjectGallery';
+import PhoneMockup from './PhoneMockup';
 
 const Projects: React.FC = () => {
 
@@ -150,40 +151,67 @@ const Projects: React.FC = () => {
       </section>
 
       {/* 2. Mobile App Projects Section */}
-      <section id="projects-mobile" className="py-20 px-4 bg-white dark:bg-gray-950">
+      <section id="projects-mobile" className="py-24 px-4 bg-white dark:bg-gray-950 overflow-hidden">
         <div className="max-w-6xl mx-auto">
-          <div className="flex items-center gap-4 mb-12 justify-center lg:justify-start">
+          <div className="flex items-center gap-4 mb-16 justify-center lg:justify-start">
             <div className="p-3 bg-purple-100 dark:bg-purple-900/30 rounded-xl text-purple-600 dark:text-purple-400">
               <Smartphone size={32} />
             </div>
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">Mobile Apps</h2>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="space-y-32">
             {mobileProjects.map((project, index) => (
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.8 }}
                 key={index}
-                className="group flex flex-col md:flex-row bg-gray-50 dark:bg-gray-900 rounded-2xl overflow-hidden shadow-lg border border-gray-200 dark:border-gray-800"
+                className={`flex flex-col ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} items-center gap-12 lg:gap-20`}
               >
-                <div className="w-full md:w-2/5 h-64 md:h-auto overflow-hidden relative">
-                  <img src={project.image} alt={project.title} className="w-full h-full object-cover" />
+                {/* Phone Mockup Side */}
+                <div className="flex-1 w-full flex justify-center lg:justify-end">
+                  <div className="relative">
+                    {/* Decorational blobs */}
+                    <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-gradient-to-tr ${index % 2 === 0 ? 'from-purple-200/50 to-blue-200/50 dark:from-purple-900/20 dark:to-blue-900/20' : 'from-pink-200/50 to-orange-200/50 dark:from-pink-900/20 dark:to-orange-900/20'} rounded-full blur-3xl -z-10`} />
+
+                    <PhoneMockup src={project.image} alt={project.title} className={index % 2 === 0 ? 'lg:mr-10' : 'lg:ml-10'} />
+                  </div>
                 </div>
-                <div className="p-6 flex-1 flex flex-col justify-center">
-                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">{project.title}</h3>
-                  <p className="text-gray-600 dark:text-gray-400 mb-4 text-sm">{project.description}</p>
-                  <div className="flex flex-wrap gap-2 mb-6">
-                    {project.tech.map((t, i) => (
-                      <span key={i} className="px-2 py-1 text-xs font-medium bg-purple-50 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 rounded-md">{t}</span>
-                    ))}
-                  </div>
-                  <div className="flex gap-4">
-                    <a href={project.liveUrl} className="text-purple-600 dark:text-purple-400 font-medium text-sm hover:underline">View App Store</a>
-                    <a href={project.githubUrl} className="text-gray-500 dark:text-gray-400 font-medium text-sm hover:underline">Source Code</a>
-                  </div>
+
+                {/* Content Side */}
+                <div className="flex-1 text-center lg:text-left">
+                  <motion.div
+                    initial={{ opacity: 0, x: index % 2 === 0 ? 50 : -50 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.2, duration: 0.8 }}
+                  >
+                    <h3 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6">{project.title}</h3>
+                    <p className="text-lg text-gray-600 dark:text-gray-300 mb-8 leading-relaxed max-w-lg mx-auto lg:mx-0">
+                      {project.description}
+                    </p>
+
+                    <div className="flex flex-wrap justify-center lg:justify-start gap-3 mb-10">
+                      {project.tech.map((t, i) => (
+                        <span key={i} className="px-4 py-2 text-sm font-medium bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full border border-gray-200 dark:border-gray-700">
+                          {t}
+                        </span>
+                      ))}
+                    </div>
+
+                    <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                      <a href={project.liveUrl} className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-gray-900 dark:bg-white text-white dark:text-gray-900 rounded-full font-semibold hover:bg-gray-800 dark:hover:bg-gray-100 transition-all hover:scale-105 active:scale-95 shadow-lg shadow-gray-900/20 dark:shadow-white/20">
+                        <Smartphone size={20} />
+                        Download App
+                      </a>
+                      <a href={project.githubUrl} className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white dark:bg-gray-900/50 text-gray-900 dark:text-white rounded-full font-semibold border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-900 transition-all hover:scale-105 active:scale-95">
+                        <Github size={20} />
+                        Source Code
+                      </a>
+                    </div>
+                  </motion.div>
                 </div>
               </motion.div>
             ))}
