@@ -139,7 +139,7 @@ const About: React.FC = () => {
   ];
 
   return (
-    <section id="about" className="py-24 relative overflow-hidden bg-white dark:bg-gray-950">
+    <section id="about" className="py-12 md:py-24 relative overflow-hidden bg-white dark:bg-gray-950">
       {/* Background Decor */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-100/50 dark:bg-blue-900/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
       <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-purple-100/50 dark:bg-purple-900/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2" />

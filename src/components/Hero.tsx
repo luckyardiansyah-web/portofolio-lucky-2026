@@ -23,7 +23,7 @@ const Hero: React.FC = () => {
     <section className="min-h-screen flex flex-col pt-24 md:pt-32 relative overflow-hidden bg-white dark:bg-gray-950">
 
       {/* Main Content Area */}
-      <div className="container mx-auto px-6 z-10 flex-grow flex flex-col md:flex-row items-center gap-12 md:gap-20">
+      <div className="container mx-auto px-6 z-10 flex-grow flex flex-col md:flex-row items-center gap-8 md:gap-20">
 
         {/* Left Column: Text */}
         <div className="flex-1 text-center md:text-left relative z-20">
@@ -42,7 +42,7 @@ const Hero: React.FC = () => {
           </motion.div>
 
           <motion.h1
-            className="text-5xl md:text-7xl lg:text-8xl font-bold text-gray-900 dark:text-white leading-[1.1] mb-8"
+            className="text-4xl md:text-7xl lg:text-8xl font-bold text-gray-900 dark:text-white leading-[1.1] mb-6 md:mb-8"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
@@ -209,7 +209,7 @@ const Hero: React.FC = () => {
 
 const FloatingBadge = ({ text, color, icon, className, delay }: { text: string, color: string, icon: React.ReactNode, className: string, delay: number }) => (
   <motion.div
-    className={`absolute ${className} z-20`}
+    className={`absolute ${className} z-20 hidden md:block`}
     initial={{ opacity: 0, scale: 0 }}
     animate={{ opacity: 1, scale: 1 }}
     transition={{ type: "spring", delay }}

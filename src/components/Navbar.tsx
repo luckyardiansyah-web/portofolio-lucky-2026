@@ -164,9 +164,9 @@ const Navbar = () => {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
-                        className="fixed inset-0 z-40 md:hidden bg-white/95 dark:bg-black/95 backdrop-blur-xl pt-24 px-6"
+                        className="fixed inset-0 z-40 md:hidden bg-white/95 dark:bg-black/95 backdrop-blur-xl pt-28 px-6 overflow-y-auto"
                     >
-                        <div className="flex flex-col space-y-4">
+                        <div className="flex flex-col space-y-6 pb-10">
                             {navLinks.map((link, i) => (
                                 <motion.div
                                     key={link.name}

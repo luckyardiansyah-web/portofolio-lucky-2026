@@ -98,7 +98,7 @@ const Projects: React.FC = () => {
 
   // 4. Videography Data
   const videographyItems: GalleryItem[] = [
-    { id: 'v1', type: 'video', title: 'Cinematic Travel Reel', category: 'Travel', src: 'https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=800&q=80', description: 'Exploring the hidden gems of Southeast Asia.' },
+    { id: 'v1', type: 'video', title: 'After Movie RAJA Brawijaya 2024', category: 'Travel', src: 'https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=800&q=80', description: 'Exploring the hidden gems of Southeast Asia.' },
     { id: 'v2', type: 'video', title: 'Product Commercial', category: 'Commercial', src: 'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=800&q=80', description: 'High-energy commercial for a new sports drink.' },
     { id: 'v3', type: 'video', title: 'Event Highlights', category: 'Events', src: 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=800&q=80', description: 'Recap of the annual tech conference.' },
     { id: 'v4', type: 'video', title: 'Music Video Teaser', category: 'Music', src: 'https://images.unsplash.com/photo-1514525253440-b393452e23f9?w=800&q=80', description: 'Behind the scenes of the latest music video production.' },
@@ -151,7 +151,7 @@ const Projects: React.FC = () => {
       </section>
 
       {/* 2. Mobile App Projects Section */}
-      <section id="projects-mobile" className="py-24 px-4 bg-white dark:bg-gray-950 overflow-hidden">
+      <section id="projects-mobile" className="py-12 md:py-24 px-4 bg-white dark:bg-gray-950 overflow-hidden">
         <div className="max-w-6xl mx-auto">
           <div className="flex items-center gap-4 mb-16 justify-center lg:justify-start">
             <div className="p-3 bg-purple-100 dark:bg-purple-900/30 rounded-xl text-purple-600 dark:text-purple-400">
@@ -160,7 +160,7 @@ const Projects: React.FC = () => {
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">Mobile Apps</h2>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-12 lg:gap-16">
+          <div className="grid md:grid-cols-2 gap-8 lg:gap-16">
             {mobileProjects.map((project, index) => (
               <motion.div
                 key={index}

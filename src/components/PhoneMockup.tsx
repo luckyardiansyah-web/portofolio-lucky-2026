@@ -55,7 +55,7 @@ const PhoneMockup: React.FC<PhoneMockupProps> = ({ src, alt, className = '', pri
                 rotateY,
                 transformStyle: "preserve-3d",
             }}
-            className={`relative w-[280px] h-[580px] mx-auto cursor-pointer ${className}`}
+            className={`relative w-full max-w-[280px] h-[580px] mx-auto cursor-pointer ${className}`}
         >
             {/* Phone Body */}
             <div

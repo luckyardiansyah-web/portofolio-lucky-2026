@@ -88,7 +88,7 @@ const Contact: React.FC = () => {
   ];
 
   return (
-    <section id="contact" className="py-20 relative overflow-hidden bg-gradient-to-r from-blue-600 to-[#222281] dark:from-blue-900 dark:to-[#1a1a60]">
+    <section id="contact" className="py-12 md:py-20 relative overflow-hidden bg-gradient-to-r from-blue-600 to-[#222281] dark:from-blue-900 dark:to-[#1a1a60]">
       {/* Background Shapes */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
         <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-blue-400/20 rounded-full blur-[100px]" />
