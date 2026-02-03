@@ -33,7 +33,7 @@ const About: React.FC = () => {
   const workData = [
     {
       period: '2025 - Present',
-      role: 'Full Stack Developer Intern Staff',
+      role: 'Junior Full Stack Developer',
       company: 'Smartlink by PT. Ada Ide Langsung Jalan',
       location: 'On-Site - Malang, Indonesia',
       logo: 'assets/Smartlink.png',
@@ -60,7 +60,7 @@ const About: React.FC = () => {
 
   const organizationData = [
     {
-      period: '2025 - 2026',
+      period: '2025',
       role: 'Exprert Staff Bureau Central of Communication and Information',
       organization: 'Eksekutif Mahasiswa Universitas Brawijaya 2025',
       location: 'Universitas Brawijaya, Malang, Indonesia',

@@ -20,10 +20,10 @@ const Hero: React.FC = () => {
     return () => clearInterval(timer);
   }, []);
   return (
-    <section className="min-h-screen flex flex-col pt-24 md:pt-32 relative overflow-hidden bg-white dark:bg-gray-950">
+    <section className="min-h-screen flex flex-col pt-20 md:pt-32 relative overflow-hidden bg-white dark:bg-gray-950">
 
       {/* Main Content Area */}
-      <div className="container mx-auto px-6 z-10 flex-grow flex flex-col md:flex-row items-center gap-8 md:gap-20">
+      <div className="container mx-auto px-4 md:px-6 z-10 flex-grow flex flex-col md:flex-row items-center gap-6 md:gap-20">
 
         {/* Left Column: Text */}
         <div className="flex-1 text-center md:text-left relative z-20">
@@ -42,7 +42,7 @@ const Hero: React.FC = () => {
           </motion.div>
 
           <motion.h1
-            className="text-4xl md:text-7xl lg:text-8xl font-bold text-gray-900 dark:text-white leading-[1.1] mb-6 md:mb-8"
+            className="text-3xl md:text-7xl lg:text-8xl font-bold text-gray-900 dark:text-white leading-[1.1] mb-4 md:mb-8"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
@@ -52,7 +52,7 @@ const Hero: React.FC = () => {
           </motion.h1>
 
           <motion.p
-            className="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-lg mx-auto md:mx-0 leading-relaxed"
+            className="text-base md:text-lg text-gray-600 dark:text-gray-400 mb-6 md:mb-8 max-w-lg mx-auto md:mx-0 leading-relaxed"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.2 }}
@@ -62,25 +62,25 @@ const Hero: React.FC = () => {
           </motion.p>
 
           <motion.div
-            className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start items-center"
+            className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center md:justify-start items-center w-full md:w-auto"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
           >
-            <a href="#projects" className="group flex items-center gap-3 bg-gray-900 dark:bg-white text-white dark:text-gray-900 px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-800 dark:hover:bg-gray-100 transition-all shadow-xl hover:shadow-2xl">
+            <a href="#projects" className="group flex items-center gap-3 bg-gray-900 dark:bg-white text-white dark:text-gray-900 px-6 md:px-8 py-3 md:py-4 rounded-full font-bold text-base md:text-lg hover:bg-gray-800 dark:hover:bg-gray-100 transition-all shadow-xl hover:shadow-2xl w-full sm:w-auto justify-center">
               View My Portfolio
               <span className="bg-blue-500 text-gray-900 rounded-full p-1 group-hover:rotate-90 transition-transform duration-300">
                 <Play size={16} fill="currentColor" />
               </span>
             </a>
-            <a href="#contact" className="px-8 py-4 border-2 border-gray-200 dark:border-gray-700 rounded-full font-bold text-gray-900 dark:text-white hover:border-gray-900 dark:hover:border-white transition-colors">
+            <a href="#contact" className="px-6 md:px-8 py-3 md:py-4 border-2 border-gray-200 dark:border-gray-700 rounded-full font-bold text-base md:text-lg text-gray-900 dark:text-white hover:border-gray-900 dark:hover:border-white transition-colors w-full sm:w-auto text-center">
               Hire Me
             </a>
           </motion.div>
         </div>
 
         {/* Right Column: Image & Decorations */}
-        <div className="flex-1 relative w-full h-[500px] md:h-[700px] flex items-center justify-center">
+        <div className="flex-1 relative w-full h-[450px] md:h-[600px] lg:h-[700px] flex items-end justify-center overflow-visible">
 
           {/* Organic Background Shape */}
           <motion.div
@@ -101,7 +101,7 @@ const Hero: React.FC = () => {
 
           {/* Profile Image (Cutout style) */}
           <motion.div
-            className="relative z-10 w-[90%] md:w-[80%] h-full flex items-end justify-center"
+            className="relative z-10 w-full md:w-[80%] h-full flex items-end justify-center"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5 }}
@@ -116,8 +116,8 @@ const Hero: React.FC = () => {
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -20 }}
                 transition={{ duration: 0.5 }}
-                className="absolute bottom-0 h-[100%] w-full object-cover rounded-b-full md:rounded-none mask-image-gradient"
-                style={{ maskImage: 'linear-gradient(to bottom, black 80%, transparent 100%)' }}
+                className="w-full max-h-[500px] md:max-h-[650px] lg:max-h-[750px] object-contain object-bottom scale-110"
+                style={{ maskImage: 'linear-gradient(to bottom, black 90%, transparent 100%)' }}
               />
             </AnimatePresence>
           </motion.div>
@@ -127,7 +127,7 @@ const Hero: React.FC = () => {
             text="Full Stack Developer"
             color="bg-purple-100 text-purple-800"
             icon={<MousePointer2 size={16} className="text-purple-600" fill="currentColor" />}
-            className="top-20 left-4 md:left-10"
+            className="top-10 md:top-20 left-2 md:left-10"
             delay={0.5}
           />
 
@@ -135,7 +135,7 @@ const Hero: React.FC = () => {
             text="Photographer"
             color="bg-purple-100 text-purple-800"
             icon={<MousePointer2 size={16} className="text-purple-600" fill="currentColor" />}
-            className="bottom-32 right-4 md:right-10"
+            className="bottom-20 md:bottom-32 right-2 md:right-10"
             delay={0.7}
           />
 
@@ -143,7 +143,7 @@ const Hero: React.FC = () => {
             text="UI/UX Designer"
             color="bg-blue-100 text-blue-800"
             icon={<MousePointer2 size={16} className="text-blue-600" fill="currentColor" />}
-            className="top-1/3 -right-6 md:-right-12"
+            className="top-1/3 right-0 md:-right-12"
             delay={0.9}
           />
 
@@ -151,7 +151,7 @@ const Hero: React.FC = () => {
             text="Videographer"
             color="bg-violet-100 text-violet-800"
             icon={<MousePointer2 size={16} className="text-violet-600" fill="currentColor" />}
-            className="top-1/2 -left-4 md:-left-10"
+            className="top-1/2 left-0 md:-left-10"
             delay={0.9}
           />
 
@@ -159,7 +159,7 @@ const Hero: React.FC = () => {
           <motion.div
             animate={{ rotate: 360 }}
             transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-            className="absolute top-10 right-0 md:-right-10 w-24 h-24 md:w-32 md:h-32 bg-gray-900 dark:bg-white rounded-full flex items-center justify-center p-2 z-20 shadow-xl"
+            className="absolute top-4 md:top-10 right-2 md:-right-10 w-20 h-20 md:w-32 md:h-32 bg-gray-900 dark:bg-white rounded-full flex items-center justify-center p-2 z-20 shadow-xl"
           >
             <div className="relative w-full h-full flex items-center justify-center">
               <svg viewBox="0 0 100 100" className="w-full h-full absolute animate-spin-slow">
@@ -181,9 +181,9 @@ const Hero: React.FC = () => {
       </div>
 
       {/* Bottom Marquee */}
-      <div className="w-full bg-blue-900 py-6 overflow-hidden scale-105 mt-12 md:mt-0">
+      <div className="w-full bg-blue-900 py-4 md:py-6 overflow-hidden scale-105 mt-8 md:mt-0">
         <motion.div
-          className="flex whitespace-nowrap text-2xl font-black text-white uppercase tracking-wider"
+          className="flex whitespace-nowrap text-lg md:text-2xl font-black text-white uppercase tracking-wider"
           animate={{ x: [0, -1000] }}
           transition={{ repeat: Infinity, ease: "linear", duration: 20 }}
         >
@@ -209,7 +209,7 @@ const Hero: React.FC = () => {
 
 const FloatingBadge = ({ text, color, icon, className, delay }: { text: string, color: string, icon: React.ReactNode, className: string, delay: number }) => (
   <motion.div
-    className={`absolute ${className} z-20 hidden md:block`}
+    className={`absolute ${className} z-20 block`}
     initial={{ opacity: 0, scale: 0 }}
     animate={{ opacity: 1, scale: 1 }}
     transition={{ type: "spring", delay }}
@@ -217,12 +217,12 @@ const FloatingBadge = ({ text, color, icon, className, delay }: { text: string, 
     <motion.div
       animate={{ y: [0, -10, 0] }}
       transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: delay * 2 }}
-      className={`flex items-center gap-2 px-4 py-2 rounded-full shadow-lg ${color} font-bold text-sm border-2 border-white dark:border-gray-900`}
+      className={`flex items-center gap-1.5 md:gap-2 px-2 md:px-4 py-1.5 md:py-2 rounded-full shadow-lg ${color} font-bold text-xs md:text-sm border-2 border-white dark:border-gray-900`}
     >
-      <div className={`p-1 bg-white rounded-full`}>
+      <div className={`p-0.5 md:p-1 bg-white rounded-full`}>
         {icon}
       </div>
-      {text}
+      <span className="hidden sm:inline">{text}</span>
     </motion.div>
   </motion.div>
 );
