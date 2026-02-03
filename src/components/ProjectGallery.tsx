@@ -12,6 +12,7 @@ export interface GalleryItem {
     description?: string;
     category?: string;
     thumbnail?: string; // For videos
+    videoUrl?: string; // YouTube or external video URL
 }
 
 interface ProjectGalleryProps {
@@ -140,16 +141,68 @@ const ProjectGallery: React.FC<ProjectGalleryProps> = ({ title, subtitle, items 
                                     alt={items.find(i => i.id === selectedId)?.title}
                                     className="w-full max-h-[80vh] object-contain bg-black"
                                 />
-                            ) : (
-                                <div className="aspect-video w-full bg-black flex items-center justify-center text-white">
-                                    {/* Placeholder for actual video player/iframe */}
-                                    <div className="text-center">
-                                        <Play size={48} className="mx-auto mb-4 opacity-50" />
-                                        <p>Video Player would go here</p>
-                                        <p className="text-sm text-gray-400 mt-2">{items.find(i => i.id === selectedId)?.src}</p>
+                            ) : (() => {
+                                const selectedItem = items.find(i => i.id === selectedId);
+                                const videoUrl = selectedItem?.videoUrl;
+
+                                // Convert YouTube URL to embed format
+                                const getYouTubeEmbedUrl = (url: string) => {
+                                    const videoIdMatch = url.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/))([^?&]+)/);
+                                    return videoIdMatch ? `https://www.youtube.com/embed/${videoIdMatch[1]}` : null;
+                                };
+
+                                // Convert Instagram URL to embed format
+                                const getInstagramEmbedUrl = (url: string) => {
+                                    // Extract the reel ID from Instagram URL
+                                    const reelMatch = url.match(/instagram\.com\/reel\/([^/?]+)/);
+                                    return reelMatch ? `https://www.instagram.com/reel/${reelMatch[1]}/embed` : null;
+                                };
+
+                                // Detect platform and get embed URL
+                                let embedUrl = null;
+                                let isInstagram = false;
+
+                                if (videoUrl) {
+                                    if (videoUrl.includes('youtube.com') || videoUrl.includes('youtu.be')) {
+                                        embedUrl = getYouTubeEmbedUrl(videoUrl);
+                                    } else if (videoUrl.includes('instagram.com')) {
+                                        embedUrl = getInstagramEmbedUrl(videoUrl);
+                                        isInstagram = true;
+                                    }
+                                }
+
+                                return (
+                                    <div className={`w-full bg-black ${isInstagram ? 'aspect-[9/16] max-h-[80vh]' : 'aspect-video'}`}>
+                                        {embedUrl ? (
+                                            <iframe
+                                                src={embedUrl}
+                                                title={selectedItem?.title}
+                                                className="w-full h-full mx-auto"
+                                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                                allowFullScreen
+                                            />
+                                        ) : (
+                                            <div className="w-full h-full flex items-center justify-center text-white">
+                                                <div className="text-center">
+                                                    <Play size={48} className="mx-auto mb-4 opacity-50" />
+                                                    <p>Video Player</p>
+                                                    {videoUrl && (
+                                                        <a
+                                                            href={videoUrl}
+                                                            target="_blank"
+                                                            rel="noopener noreferrer"
+                                                            className="inline-flex items-center gap-2 mt-4 px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg transition-colors"
+                                                        >
+                                                            <ExternalLink size={16} />
+                                                            Watch Video
+                                                        </a>
+                                                    )}
+                                                </div>
+                                            </div>
+                                        )}
                                     </div>
-                                </div>
-                            )}
+                                );
+                            })()}
 
                             <div className="p-6 md:p-8">
                                 <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">

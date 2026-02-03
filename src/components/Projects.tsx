@@ -81,34 +81,19 @@ const Projects: React.FC = () => {
     { id: 'p33', type: 'photo', title: 'Bahar & Mifta', category: 'Wedding', src: 'images/FRS09432.jpg', description: 'for Ranah Asmara by Lucky Ardiansyah' },
     { id: 'p34', type: 'photo', title: 'Bahar & Mifta', category: 'Wedding', src: 'images/FRS09465.jpg', description: 'for Ranah Asmara by Lucky Ardiansyah' },
     { id: 'p35', type: 'photo', title: 'Bahar & Mifta', category: 'Wedding', src: 'images/FRS09506.jpg', description: 'for Ranah Asmara by Lucky Ardiansyah' },
-
-    // Couple
-    { id: 'p41', type: 'photo', title: 'Urban Romance', category: 'Couple', src: 'https://images.unsplash.com/photo-1529619768328-e37af76c6fe5?w=800&q=80', description: 'A casual couple shoot in the city.' },
-    { id: 'p42', type: 'photo', title: 'Sunset Love', category: 'Couple', src: 'https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=800&q=80', description: 'Golden hour moments.' },
-
-    // Portrait
-    { id: 'p61', type: 'photo', title: 'Neon Portrait', category: 'Portrait', src: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=800&q=80', description: 'Creative portrait with neon lighting.' },
-    { id: 'p62', type: 'photo', title: 'Studio Classic', category: 'Portrait', src: 'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=800&q=80', description: 'Timeless black and white portrait.' },
-
-    // Nature/Landscape (Keeping some old ones)
-    { id: 'p81', type: 'photo', title: 'Mountain Mist', category: 'Landscape', src: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800&q=80' },
-    { id: 'p82', type: 'photo', title: 'Golden Hour', category: 'Nature', src: 'https://images.unsplash.com/photo-1472214103451-9374bd1c798e?w=800&q=80' },
-    { id: 'p83', type: 'photo', title: 'Coffee Culture', category: 'Lifestyle', src: 'https://images.unsplash.com/photo-1497935586351-b67a49e012bf?w=800&q=80' },
   ];
 
   // 4. Videography Data
   const videographyItems: GalleryItem[] = [
-    { id: 'v1', type: 'video', title: 'After Movie RAJA Brawijaya 2024', category: 'Travel', src: 'https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=800&q=80', description: 'Exploring the hidden gems of Southeast Asia.' },
-    { id: 'v2', type: 'video', title: 'Product Commercial', category: 'Commercial', src: 'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=800&q=80', description: 'High-energy commercial for a new sports drink.' },
-    { id: 'v3', type: 'video', title: 'Event Highlights', category: 'Events', src: 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=800&q=80', description: 'Recap of the annual tech conference.' },
-    { id: 'v4', type: 'video', title: 'Music Video Teaser', category: 'Music', src: 'https://images.unsplash.com/photo-1514525253440-b393452e23f9?w=800&q=80', description: 'Behind the scenes of the latest music video production.' },
-    { id: 'v5', type: 'video', title: 'Documentary Short', category: 'Documentary', src: 'https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?w=800&q=80', description: 'A short film about local artisans.' },
+    { id: 'v1', type: 'video', title: 'After Movie RAJA Brawijaya 2024', category: 'Aftermovie', src: 'https://img.youtube.com/vi/Fnpda4PMJKU/maxresdefault.jpg', description: 'After Movie RAJA Brawijaya 2024', videoUrl: 'https://youtu.be/Fnpda4PMJKU?si=VxMdWVvGWK42nNjP' },
+    { id: 'v2', type: 'video', title: 'Elare', category: 'Commercial Product', src: 'https://scontent.cdninstagram.com/v/t51.29350-15/470925395_1111992610634730_1859033913652732639_n.jpg', description: 'Commercial Product - Elare', videoUrl: 'https://www.instagram.com/reel/DDZnuc4P6kU/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==' },
+    { id: 'v3', type: 'video', title: 'After Movie Rasvara Festival 2025', category: 'Aftermovie', src: 'https://scontent.cdninstagram.com/v/t51.29350-15/472044738_1110754830816859_4829464476464949092_n.jpg', description: 'After Movie Rasvara Festival 2025', videoUrl: 'https://www.instagram.com/reel/DKEalpKA0Zk/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==' },
   ];
 
   return (
     <div id="projects" className="bg-gray-50 dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800">
 
-      {/* 1. Website Projects Section */}
+      {/* 1. Website Projects Section - Coming Soon */}
       <section id="projects-web" className="py-20 px-4">
         <div className="max-w-6xl mx-auto">
           <div className="flex items-center gap-4 mb-12 justify-center lg:justify-start">
@@ -118,39 +103,55 @@ const Projects: React.FC = () => {
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">Website Projects</h2>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
-            {webProjects.map((project, index) => (
+          {/* Coming Soon Card */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 dark:from-blue-950/30 dark:via-indigo-950/30 dark:to-purple-950/30 border border-blue-200 dark:border-blue-800/50 shadow-xl"
+          >
+            {/* Animated Background Gradient */}
+            <div className="absolute inset-0 bg-gradient-to-r from-blue-400/20 via-purple-400/20 to-pink-400/20 dark:from-blue-600/20 dark:via-purple-600/20 dark:to-pink-600/20 animate-pulse" />
+
+            {/* Content */}
+            <div className="relative z-10 flex flex-col items-center justify-center py-32 px-8 text-center">
+              {/* Icon */}
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                key={index}
-                className="group bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 dark:border-gray-700"
+                animate={{
+                  scale: [1, 1.1, 1],
+                  rotate: [0, 5, -5, 0]
+                }}
+                transition={{
+                  duration: 3,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+                className="mb-8 p-6 bg-white dark:bg-gray-800 rounded-2xl shadow-lg"
               >
-                <div className="h-64 overflow-hidden relative">
-                  <img src={project.image} alt={project.title} className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500" />
-                  <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4">
-                    <a href={project.githubUrl} className="p-3 bg-white rounded-full hover:bg-gray-100 transition text-gray-900"><Github size={20} /></a>
-                    <a href={project.liveUrl} className="p-3 bg-blue-600 rounded-full hover:bg-blue-700 transition text-white"><ExternalLink size={20} /></a>
-                  </div>
-                </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">{project.title}</h3>
-                  <p className="text-gray-600 dark:text-gray-300 mb-4">{project.description}</p>
-                  <div className="flex flex-wrap gap-2">
-                    {project.tech.map((t, i) => (
-                      <span key={i} className="px-3 py-1 text-xs font-medium bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-300 rounded-full">{t}</span>
-                    ))}
-                  </div>
-                </div>
+                <Monitor size={64} className="text-blue-600 dark:text-blue-400" />
               </motion.div>
-            ))}
-          </div>
+
+              {/* Text */}
+              <h3 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+                Coming Soon
+              </h3>
+              <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-2xl mb-6">
+                Exciting website projects are currently in development. Stay tuned for innovative web solutions and creative digital experiences.
+              </p>
+
+              {/* Decorative Elements */}
+              <div className="flex gap-2 mt-4">
+                <span className="w-3 h-3 bg-blue-500 rounded-full animate-bounce" style={{ animationDelay: '0s' }} />
+                <span className="w-3 h-3 bg-purple-500 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }} />
+                <span className="w-3 h-3 bg-pink-500 rounded-full animate-bounce" style={{ animationDelay: '0.4s' }} />
+              </div>
+            </div>
+          </motion.div>
         </div>
       </section>
 
-      {/* 2. Mobile App Projects Section */}
+      {/* 2. Mobile App Projects Section - Coming Soon */}
       <section id="projects-mobile" className="py-12 md:py-24 px-4 bg-white dark:bg-gray-950 overflow-hidden">
         <div className="max-w-6xl mx-auto">
           <div className="flex items-center gap-4 mb-16 justify-center lg:justify-start">
@@ -160,60 +161,51 @@ const Projects: React.FC = () => {
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">Mobile Apps</h2>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8 lg:gap-16">
-            {mobileProjects.map((project, index) => (
+          {/* Coming Soon Card */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-purple-50 via-pink-50 to-orange-50 dark:from-purple-950/30 dark:via-pink-950/30 dark:to-orange-950/30 border border-purple-200 dark:border-purple-800/50 shadow-xl"
+          >
+            {/* Animated Background Gradient */}
+            <div className="absolute inset-0 bg-gradient-to-r from-purple-400/20 via-pink-400/20 to-orange-400/20 dark:from-purple-600/20 dark:via-pink-600/20 dark:to-orange-600/20 animate-pulse" />
+
+            {/* Content */}
+            <div className="relative z-10 flex flex-col items-center justify-center py-32 px-8 text-center">
+              {/* Icon */}
               <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
-                className="relative group"
+                animate={{
+                  y: [0, -10, 0],
+                  rotate: [0, -3, 3, 0]
+                }}
+                transition={{
+                  duration: 2.5,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+                className="mb-8 p-6 bg-white dark:bg-gray-800 rounded-2xl shadow-lg"
               >
-                {/* Decorational Background Blob */}
-                <div
-                  className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[80%] 
-                    bg-gradient-to-br ${index === 0 ? 'from-purple-500/10 to-blue-500/10' : 'from-pink-500/10 to-orange-500/10'} 
-                    rounded-[3rem] blur-3xl -z-10 group-hover:bg-opacity-20 transition-all duration-500`}
-                />
-
-                {/* Card Content */}
-                <div className="flex flex-col items-center">
-                  {/* 3D Phone Mockup */}
-                  <div className="mb-8 transform group-hover:-translate-y-4 transition-transform duration-500">
-                    <PhoneMockup src={project.image} alt={project.title} />
-                  </div>
-
-                  {/* Project Info */}
-                  <div className="text-center w-full max-w-sm">
-                    <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">{project.title}</h3>
-                    <p className="text-gray-600 dark:text-gray-400 mb-6 line-clamp-2">
-                      {project.description}
-                    </p>
-
-                    {/* Tech Stack */}
-                    <div className="flex flex-wrap justify-center gap-2 mb-6">
-                      {project.tech.map((t, i) => (
-                        <span key={i} className="px-3 py-1 text-xs font-semibold bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 rounded-full border border-gray-200 dark:border-gray-700">
-                          {t}
-                        </span>
-                      ))}
-                    </div>
-
-                    {/* Action Buttons */}
-                    <div className="flex items-center justify-center gap-4 opacity-0 transform translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
-                      <a href={project.liveUrl} className="p-3 bg-gray-900 dark:bg-white text-white dark:text-gray-900 rounded-full hover:scale-110 transition-transform shadow-lg" title="View App">
-                        <Smartphone size={20} />
-                      </a>
-                      <a href={project.githubUrl} className="p-3 bg-white dark:bg-gray-800 text-gray-900 dark:text-white border border-gray-200 dark:border-gray-700 rounded-full hover:scale-110 transition-transform shadow-lg" title="Source Code">
-                        <Github size={20} />
-                      </a>
-                    </div>
-                  </div>
-                </div>
+                <Smartphone size={64} className="text-purple-600 dark:text-purple-400" />
               </motion.div>
-            ))}
-          </div>
+
+              {/* Text */}
+              <h3 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+                Coming Soon
+              </h3>
+              <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-2xl mb-6">
+                Amazing mobile applications are being crafted. Get ready for stunning iOS and Android apps with exceptional user experiences.
+              </p>
+
+              {/* Decorative Elements */}
+              <div className="flex gap-2 mt-4">
+                <span className="w-3 h-3 bg-purple-500 rounded-full animate-bounce" style={{ animationDelay: '0s' }} />
+                <span className="w-3 h-3 bg-pink-500 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }} />
+                <span className="w-3 h-3 bg-orange-500 rounded-full animate-bounce" style={{ animationDelay: '0.4s' }} />
+              </div>
+            </div>
+          </motion.div>
         </div>
       </section>
 
