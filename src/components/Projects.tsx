@@ -39,7 +39,7 @@ const Projects: React.FC = () => {
   const webProjects = [
     {
       title: 'LuckyQuiz',
-      description: 'An interactive quiz application with real-time scoring, multiple categories, and user progress tracking.',
+      description: 'An interactive quiz application with real-time scoring, multiple categories, and user progress tracking. Engaging UI with animations and responsive design. You can use username/password: admin/admin to login as a guest user.',
       tech: ['Next.js', 'TypeScript', 'Tailwind CSS'],
       category: 'Full Stack Web App',
       liveUrl: 'https://luckyquiz.vercel.app',
@@ -71,6 +71,20 @@ const Projects: React.FC = () => {
         '/project_images/JalanKerja_8.png',
         '/project_images/JalanKerja_9.png',
         '/project_images/JalanKerja_10.png',
+      ]
+    },
+    {
+      title: 'Smartlink',
+      description: 'Corporate website and landing page for Indonesia\'s #1 laundry management application. Features modern design, service showcase, pricing plans, and customer testimonials with responsive layout.',
+      tech: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS'],
+      category: 'Corporate Website',
+      liveUrl: 'https://smartlink.id',
+      status: 'live' as const,
+      images: [
+        '/project_images/Smartlink_1.png',
+        '/project_images/Smartlink_2.png',
+        '/project_images/Smartlink_3.png',
+        '/project_images/Smartlink_4.png',
       ]
     },
     {

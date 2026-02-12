@@ -278,7 +278,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
         </div>
       </div>
       
-      <div className="p-6 flex flex-col h-full">
+      <div className="p-6 flex flex-col shrink-0 grow">
         <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
           {project.title}
         </h3>
@@ -306,7 +306,6 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
           ))}
         </div>
         
-        {/* Button - pushed to bottom with mt-auto */}
         <div className="mt-auto">
           {project.status === 'development' ? (
             <motion.button
