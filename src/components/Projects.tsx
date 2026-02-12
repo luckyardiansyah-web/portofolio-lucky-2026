@@ -20,9 +20,13 @@ const Projects: React.FC = () => {
     'Vue.js': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg',
     'Node.js': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg',
     'Python': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg',
+    'Golang': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/go/go-original.svg',
     'Tailwind CSS': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg',
     'MongoDB': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg',
     'PostgreSQL': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg',
+    'Neo4j': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/neo4j/neo4j-original.svg',
+    'Redis': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg',
+    'RabbitMQ': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/rabbitmq/rabbitmq-original.svg',
     'Prisma': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/prisma/prisma-original.svg',
     'Firebase': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg',
     'React Native': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg',
@@ -39,6 +43,7 @@ const Projects: React.FC = () => {
       tech: ['Next.js', 'TypeScript', 'Tailwind CSS'],
       category: 'Full Stack Web App',
       liveUrl: 'https://luckyquiz.vercel.app',
+      status: 'live' as const,
       images: [
         '/project_images/LuckyQuiz_1.png',
         '/project_images/LuckyQuiz_2.png',
@@ -49,12 +54,63 @@ const Projects: React.FC = () => {
       ]
     },
     {
-      title: 'Weather Dashboard',
-      description: 'A responsive weather dashboard with location-based forecasts and interactive maps.',
-      tech: ['Vue.js', 'JavaScript', 'Node.js'],
-      category: 'Dashboard & Analytics',
+      title: 'Jalan Kerja by Smartlink',
+      description: 'A comprehensive task management platform for managing tasks, customer issues, worksheets, and team collaboration with real-time updates.',
+      tech: ['Next.js', 'React', 'TypeScript', 'Golang', 'Neo4j', 'PostgreSQL', 'Redux', 'Tailwind CSS'],
+      category: 'Enterprise Web App',
       liveUrl: '#',
-      images: ['https://images.unsplash.com/photo-1592210454359-9043f067919b?w=800&q=80']
+      status: 'live' as const,
+      images: [
+        '/project_images/JalanKerja_1.png',
+        '/project_images/JalanKerja_2.png',
+        '/project_images/JalanKerja_3.png',
+        '/project_images/JalanKerja_4.png',
+        '/project_images/JalanKerja_5.png',
+        '/project_images/JalanKerja_6.png',
+        '/project_images/JalanKerja_7.png',
+        '/project_images/JalanKerja_8.png',
+        '/project_images/JalanKerja_9.png',
+        '/project_images/JalanKerja_10.png',
+      ]
+    },
+    {
+      title: 'Aglimpse',
+      description: 'A Netflix-style streaming platform showcasing movie and TV show trailers with advanced filtering, search, and personalized recommendations.',
+      tech: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Node.js'],
+      category: 'Entertainment Platform',
+      liveUrl: '#',
+      status: 'development' as const,
+      images: [
+        'https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=800&q=80',
+        'https://images.unsplash.com/photo-1440404653325-ab127d49abc1?w=800&q=80',
+        'https://images.unsplash.com/photo-1485846234645-a62644f84728?w=800&q=80',
+      ]
+    },
+    {
+      title: 'BoltTicket',
+      description: 'High-performance ticketing platform designed to handle massive concurrent traffic during flash sales. Features queue management, rate limiting, and real-time inventory updates for thousands of simultaneous users.',
+      tech: ['Next.js', 'TypeScript', 'Golang', 'Redis', 'PostgreSQL', 'RabbitMQ'],
+      category: 'High-Traffic E-Commerce',
+      liveUrl: '#',
+      status: 'development' as const,
+      images: [
+        'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&q=80',
+        'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=800&q=80',
+        'https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?w=800&q=80',
+      ]
+    },
+    {
+      title: 'Clover Trade',
+      description: 'Real-time stock market investment platform with live price tracking, portfolio management, market analytics, and trading simulations. Features interactive charts and personalized investment insights.',
+      tech: ['Next.js', 'React', 'TypeScript', 'Python', 'PostgreSQL', 'Redux', 'Tailwind CSS'],
+      category: 'FinTech Platform',
+      liveUrl: '#',
+      status: 'development' as const,
+      images: [
+        'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&q=80',
+        'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80',
+        'https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?w=800&q=80',
+      ]
     }
   ];
 
@@ -66,6 +122,7 @@ const Projects: React.FC = () => {
       tech: ['React Native', 'Firebase', 'Redux'],
       category: 'Productivity App',
       liveUrl: '#',
+      status: 'development' as const,
       images: ['https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&q=80']
     },
     {
@@ -74,6 +131,7 @@ const Projects: React.FC = () => {
       tech: ['Flutter', 'HealthKit', 'Dart'],
       category: 'Health & Fitness',
       liveUrl: '#',
+      status: 'development' as const,
       images: ['https://images.unsplash.com/photo-1576633587382-13ddf37b1fc1?w=800&q=80']
     }
   ];

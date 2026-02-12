@@ -12,6 +12,7 @@ interface ProjectCardProps {
     category: string;
     liveUrl: string;
     images: string[];
+    status?: 'live' | 'development';
   };
   index: number;
   techIcons: { [key: string]: string };
@@ -132,7 +133,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 1, delay: index * 0.1 }}
-      className="group bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300"
+      className="group bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col"
     >
       <div className="relative overflow-hidden h-64">
         {/* Image Slider */}
@@ -235,6 +236,27 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
           )}
         </div>
         
+        {/* Development Status Badge - Top Left */}
+        {project.status === 'development' && (
+          <div className="absolute top-4 left-4 z-20">
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="relative"
+            >
+              {/* Animated gradient background */}
+              <div className="absolute inset-0 bg-gradient-to-r from-orange-500 via-yellow-500 to-orange-500 dark:from-orange-400 dark:via-yellow-400 dark:to-orange-400 rounded-full blur-sm opacity-75 animate-gradient-x"></div>
+              
+              {/* Badge content */}
+              <span className="relative block px-4 py-2 bg-gradient-to-r from-orange-600 via-yellow-600 to-orange-600 dark:from-orange-500 dark:via-yellow-500 dark:to-orange-500 text-white text-xs font-bold uppercase tracking-wider rounded-full shadow-lg backdrop-blur-sm">
+                🚧 In Development
+              </span>
+            </motion.div>
+          </div>
+        )}
+        
         {/* Category Badge */}
         <div className="absolute top-4 right-4 z-20">
           <motion.div
@@ -246,17 +268,17 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
             className="relative group/badge"
           >
             {/* Animated gradient background */}
-            <div className={`absolute inset-0 bg-linear-to-r ${colors.badge} rounded-full blur-sm opacity-75 group-hover/badge:opacity-100 animate-gradient-x transition-opacity duration-300`}></div>
+            <div className={`absolute inset-0 bg-gradient-to-r ${colors.badge} rounded-full blur-sm opacity-75 group-hover/badge:opacity-100 animate-gradient-x transition-opacity duration-300`}></div>
             
             {/* Badge content */}
-            <span className={`relative block px-4 py-2 bg-linear-to-r ${colors.badgeContent} text-white text-xs font-bold uppercase tracking-wider rounded-full shadow-lg backdrop-blur-sm`}>
+            <span className={`relative block px-4 py-2 bg-gradient-to-r ${colors.badgeContent} text-white text-xs font-bold uppercase tracking-wider rounded-full shadow-lg backdrop-blur-sm`}>
               {project.category}
             </span>
           </motion.div>
         </div>
       </div>
       
-      <div className="p-6">
+      <div className="p-6 flex flex-col h-full">
         <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
           {project.title}
         </h3>
@@ -284,21 +306,35 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
           ))}
         </div>
         
-        <motion.a 
-          href={project.liveUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          whileHover={{ scale: 1.02 }}
-          whileTap={{ scale: 0.98 }}
-          className={`relative group/button overflow-hidden flex items-center justify-center gap-2 w-full py-3 px-6 bg-linear-to-r ${colors.button} text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300`}
-        >
-          {/* Animated shine effect */}
-          <div className="absolute inset-0 bg-linear-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover/button:translate-x-full transition-transform duration-700"></div>
-          
-          {/* Button content */}
-          <ExternalLink size={20} className="relative z-10" />
-          <span className="relative z-10">View Live Demo</span>
-        </motion.a>
+        {/* Button - pushed to bottom with mt-auto */}
+        <div className="mt-auto">
+          {project.status === 'development' ? (
+            <motion.button
+              disabled
+              className="relative overflow-hidden flex items-center justify-center gap-2 w-full py-3 px-6 bg-gray-400 dark:bg-gray-600 text-gray-200 dark:text-gray-400 font-semibold rounded-xl shadow-lg cursor-not-allowed opacity-60"
+            >
+              {/* Button content */}
+              <ExternalLink size={20} className="relative z-10" />
+              <span className="relative z-10">Coming Soon</span>
+            </motion.button>
+          ) : (
+            <motion.a 
+              href={project.liveUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              className={`relative group/button overflow-hidden flex items-center justify-center gap-2 w-full py-3 px-6 bg-gradient-to-r ${colors.button} text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300`}
+            >
+              {/* Animated shine effect */}
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover/button:translate-x-full transition-transform duration-700"></div>
+              
+              {/* Button content */}
+              <ExternalLink size={20} className="relative z-10" />
+              <span className="relative z-10">View Live Demo</span>
+            </motion.a>
+          )}
+        </div>
       </div>
     </motion.div>
   );
