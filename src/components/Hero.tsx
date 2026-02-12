@@ -23,7 +23,7 @@ const Hero: React.FC = () => {
     <section className="min-h-screen flex flex-col pt-20 md:pt-32 relative overflow-hidden bg-white dark:bg-gray-950">
 
       {/* Main Content Area */}
-      <div className="container mx-auto px-4 md:px-6 z-10 flex-grow flex flex-col md:flex-row items-center gap-6 md:gap-20">
+      <div className="container mx-auto px-4 md:px-6 z-10 grow flex flex-col md:flex-row items-center gap-6 md:gap-20">
 
         {/* Left Column: Text */}
         <div className="flex-1 text-center md:text-left relative z-20">
@@ -80,11 +80,11 @@ const Hero: React.FC = () => {
         </div>
 
         {/* Right Column: Image & Decorations */}
-        <div className="flex-1 relative w-full h-[450px] md:h-[600px] lg:h-[700px] flex items-end justify-center overflow-visible">
+        <div className="flex-1 relative w-full h-112.5 md:h-150 lg:h-175 flex items-end justify-center overflow-visible">
 
           {/* Organic Background Shape */}
           <motion.div
-            className="absolute inset-0 bg-gradient-to-r from-blue-600 to-[#222281] dark:from-blue-400 dark:to-[#222281]  rounded-[30%_70%_70%_30%/30%_30%_70%_70%] z-0"
+            className="absolute inset-0 bg-linear-to-r from-blue-600 to-[#222281] dark:from-blue-400 dark:to-[#222281]  rounded-[30%_70%_70%_30%/30%_30%_70%_70%] z-0"
             animate={{
               borderRadius: [
                 "30% 70% 70% 30% / 30% 30% 70% 70%",
@@ -116,7 +116,7 @@ const Hero: React.FC = () => {
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -20 }}
                 transition={{ duration: 0.5 }}
-                className="w-full max-h-[500px] md:max-h-[650px] lg:max-h-[750px] object-contain object-bottom scale-110"
+                className="w-full max-h-125 md:max-h-162.5 lg:max-h-187.5 object-contain object-bottom scale-110"
                 style={{ maskImage: 'linear-gradient(to bottom, black 90%, transparent 100%)' }}
               />
             </AnimatePresence>
@@ -197,7 +197,7 @@ const Hero: React.FC = () => {
               <span className="mx-8 text-white">❋</span>
               <span className="mx-8">UI/UX Design</span>
               <span className="mx-8 text-white">❋</span>
-              <span className="mx-8">Content Creation</span>
+              <span className="mx-8">Mobile App</span>
               <span className="mx-8 text-white">❋</span>
             </React.Fragment>
           ))}

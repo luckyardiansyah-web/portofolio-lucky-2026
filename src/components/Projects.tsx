@@ -1,30 +1,60 @@
 'use client';
 
-import React from 'react';
-import { motion } from 'framer-motion';
-import { Github, ExternalLink, Smartphone, Monitor } from 'lucide-react';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Smartphone, Monitor, ChevronLeft, ChevronRight, X } from 'lucide-react';
 import ProjectGallery, { GalleryItem } from './ProjectGallery';
 import PhoneMockup from './PhoneMockup';
+import ProjectCard from './ProjectCard';
 
 const Projects: React.FC = () => {
+  const [selectedProject, setSelectedProject] = useState<number | null>(null);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  // Tech Stack Icons Map
+  const techIcons: { [key: string]: string } = {
+    'Next.js': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg',
+    'TypeScript': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg',
+    'JavaScript': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg',
+    'React': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg',
+    'Vue.js': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg',
+    'Node.js': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg',
+    'Python': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg',
+    'Tailwind CSS': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg',
+    'MongoDB': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg',
+    'PostgreSQL': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg',
+    'Prisma': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/prisma/prisma-original.svg',
+    'Firebase': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg',
+    'React Native': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg',
+    'Flutter': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg',
+    'Dart': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg',
+    'Redux': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg',
+  };
 
   // 1. Website Projects Data
   const webProjects = [
     {
-      title: 'E-commerce Platform',
-      description: 'A full-stack e-commerce solution with payment integration, user authentication, and admin dashboard.',
-      tech: ['Next.js', 'TypeScript', 'Stripe', 'Prisma'],
-      liveUrl: '#',
-      githubUrl: '#',
-      image: 'https://images.unsplash.com/photo-1557821552-17105176677c?w=800&q=80'
+      title: 'LuckyQuiz',
+      description: 'An interactive quiz application with real-time scoring, multiple categories, and user progress tracking.',
+      tech: ['Next.js', 'TypeScript', 'Tailwind CSS'],
+      category: 'Full Stack Web App',
+      liveUrl: 'https://luckyquiz.vercel.app',
+      images: [
+        '/project_images/LuckyQuiz_1.png',
+        '/project_images/LuckyQuiz_2.png',
+        '/project_images/LuckyQuiz_3.png',
+        '/project_images/LuckyQuiz_4.png',
+        '/project_images/LuckyQuiz_5.png',
+        '/project_images/LuckyQuiz_6.png',
+      ]
     },
     {
       title: 'Weather Dashboard',
       description: 'A responsive weather dashboard with location-based forecasts and interactive maps.',
-      tech: ['Vue.js', 'OpenWeather API', 'Chart.js'],
+      tech: ['Vue.js', 'JavaScript', 'Node.js'],
+      category: 'Dashboard & Analytics',
       liveUrl: '#',
-      githubUrl: '#',
-      image: 'https://images.unsplash.com/photo-1592210454359-9043f067919b?w=800&q=80'
+      images: ['https://images.unsplash.com/photo-1592210454359-9043f067919b?w=800&q=80']
     }
   ];
 
@@ -34,17 +64,17 @@ const Projects: React.FC = () => {
       title: 'Task Master App',
       description: 'A productivity app for prioritizing tasks with gesture-based controls and offline sync.',
       tech: ['React Native', 'Firebase', 'Redux'],
+      category: 'Productivity App',
       liveUrl: '#',
-      githubUrl: '#',
-      image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&q=80'
+      images: ['https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&q=80']
     },
     {
       title: 'Fitness Tracker',
       description: 'Health monitoring application tracking steps, calories, and workout routines.',
       tech: ['Flutter', 'HealthKit', 'Dart'],
+      category: 'Health & Fitness',
       liveUrl: '#',
-      githubUrl: '#',
-      image: 'https://images.unsplash.com/photo-1576633587382-13ddf37b1fc1?w=800&q=80'
+      images: ['https://images.unsplash.com/photo-1576633587382-13ddf37b1fc1?w=800&q=80']
     }
   ];
 
@@ -93,7 +123,7 @@ const Projects: React.FC = () => {
   return (
     <div id="projects" className="bg-gray-50 dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800">
 
-      {/* 1. Website Projects Section - Coming Soon */}
+      {/* 1. Website Projects Section */}
       <section id="projects-web" className="py-20 px-4">
         <div className="max-w-6xl mx-auto">
           <div className="flex items-center gap-4 mb-12 justify-center lg:justify-start">
@@ -103,55 +133,25 @@ const Projects: React.FC = () => {
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">Website Projects</h2>
           </div>
 
-          {/* Coming Soon Card */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 dark:from-blue-950/30 dark:via-indigo-950/30 dark:to-purple-950/30 border border-blue-200 dark:border-blue-800/50 shadow-xl"
-          >
-            {/* Animated Background Gradient */}
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-400/20 via-purple-400/20 to-pink-400/20 dark:from-blue-600/20 dark:via-purple-600/20 dark:to-pink-600/20 animate-pulse" />
-
-            {/* Content */}
-            <div className="relative z-10 flex flex-col items-center justify-center py-32 px-8 text-center">
-              {/* Icon */}
-              <motion.div
-                animate={{
-                  scale: [1, 1.1, 1],
-                  rotate: [0, 5, -5, 0]
+          <div className="grid md:grid-cols-2 gap-8">
+            {webProjects.map((project, index) => (
+              <ProjectCard
+                key={index}
+                project={project}
+                index={index}
+                techIcons={techIcons}
+                onImageClick={(projIndex, imgIndex) => {
+                  setSelectedProject(projIndex);
+                  setCurrentImageIndex(imgIndex);
                 }}
-                transition={{
-                  duration: 3,
-                  repeat: Infinity,
-                  ease: "easeInOut"
-                }}
-                className="mb-8 p-6 bg-white dark:bg-gray-800 rounded-2xl shadow-lg"
-              >
-                <Monitor size={64} className="text-blue-600 dark:text-blue-400" />
-              </motion.div>
-
-              {/* Text */}
-              <h3 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
-                Coming Soon
-              </h3>
-              <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-2xl mb-6">
-                Exciting website projects are currently in development. Stay tuned for innovative web solutions and creative digital experiences.
-              </p>
-
-              {/* Decorative Elements */}
-              <div className="flex gap-2 mt-4">
-                <span className="w-3 h-3 bg-blue-500 rounded-full animate-bounce" style={{ animationDelay: '0s' }} />
-                <span className="w-3 h-3 bg-purple-500 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }} />
-                <span className="w-3 h-3 bg-pink-500 rounded-full animate-bounce" style={{ animationDelay: '0.4s' }} />
-              </div>
-            </div>
-          </motion.div>
+                themeColor="blue"
+              />
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* 2. Mobile App Projects Section - Coming Soon */}
+      {/* 2. Mobile App Projects Section */}
       <section id="projects-mobile" className="py-12 md:py-24 px-4 bg-white dark:bg-gray-950 overflow-hidden">
         <div className="max-w-6xl mx-auto">
           <div className="flex items-center gap-4 mb-16 justify-center lg:justify-start">
@@ -161,51 +161,21 @@ const Projects: React.FC = () => {
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">Mobile Apps</h2>
           </div>
 
-          {/* Coming Soon Card */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-purple-50 via-pink-50 to-orange-50 dark:from-purple-950/30 dark:via-pink-950/30 dark:to-orange-950/30 border border-purple-200 dark:border-purple-800/50 shadow-xl"
-          >
-            {/* Animated Background Gradient */}
-            <div className="absolute inset-0 bg-gradient-to-r from-purple-400/20 via-pink-400/20 to-orange-400/20 dark:from-purple-600/20 dark:via-pink-600/20 dark:to-orange-600/20 animate-pulse" />
-
-            {/* Content */}
-            <div className="relative z-10 flex flex-col items-center justify-center py-32 px-8 text-center">
-              {/* Icon */}
-              <motion.div
-                animate={{
-                  y: [0, -10, 0],
-                  rotate: [0, -3, 3, 0]
+          <div className="grid md:grid-cols-2 gap-8">
+            {mobileProjects.map((project, index) => (
+              <ProjectCard
+                key={index}
+                project={project}
+                index={index}
+                techIcons={techIcons}
+                onImageClick={(projIndex, imgIndex) => {
+                  setSelectedProject(webProjects.length + projIndex);
+                  setCurrentImageIndex(imgIndex);
                 }}
-                transition={{
-                  duration: 2.5,
-                  repeat: Infinity,
-                  ease: "easeInOut"
-                }}
-                className="mb-8 p-6 bg-white dark:bg-gray-800 rounded-2xl shadow-lg"
-              >
-                <Smartphone size={64} className="text-purple-600 dark:text-purple-400" />
-              </motion.div>
-
-              {/* Text */}
-              <h3 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
-                Coming Soon
-              </h3>
-              <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-2xl mb-6">
-                Amazing mobile applications are being crafted. Get ready for stunning iOS and Android apps with exceptional user experiences.
-              </p>
-
-              {/* Decorative Elements */}
-              <div className="flex gap-2 mt-4">
-                <span className="w-3 h-3 bg-purple-500 rounded-full animate-bounce" style={{ animationDelay: '0s' }} />
-                <span className="w-3 h-3 bg-pink-500 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }} />
-                <span className="w-3 h-3 bg-orange-500 rounded-full animate-bounce" style={{ animationDelay: '0.4s' }} />
-              </div>
-            </div>
-          </motion.div>
+                themeColor="purple"
+              />
+            ))}
+          </div>
         </div>
       </section>
 
@@ -230,6 +200,85 @@ const Projects: React.FC = () => {
           />
         </div>
       </section>
+
+      {/* Image Preview Modal */}
+      <AnimatePresence>
+        {selectedProject !== null && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-sm p-4"
+            onClick={() => setSelectedProject(null)}
+          >
+            <button
+              onClick={() => setSelectedProject(null)}
+              aria-label="Close image preview"
+              className="absolute top-4 right-4 p-2 bg-white/10 hover:bg-white/20 rounded-full transition-colors duration-200 z-10"
+            >
+              <X size={24} className="text-white" />
+            </button>
+
+            <div className="relative w-full max-w-6xl" onClick={(e) => e.stopPropagation()}>
+              {/* Get current project images */}
+              {(() => {
+                const allProjects = [...webProjects, ...mobileProjects];
+                const project = allProjects[selectedProject];
+                if (!project) return null;
+
+                return (
+                  <>
+                    {/* Main Image */}
+                    <motion.img
+                      key={currentImageIndex}
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      exit={{ opacity: 0, scale: 0.9 }}
+                      src={project.images[currentImageIndex]}
+                      alt={`${project.title} - ${currentImageIndex + 1}`}
+                      className="w-full h-auto max-h-[80vh] object-contain rounded-lg shadow-2xl"
+                    />
+
+                    {/* Navigation Arrows */}
+                    {project.images.length > 1 && (
+                      <>
+                        <button
+                          onClick={() => setCurrentImageIndex((prev) =>
+                            prev === 0 ? project.images.length - 1 : prev - 1
+                          )}
+                          aria-label="Previous image"
+                          className="absolute left-4 top-1/2 -translate-y-1/2 p-3 bg-white/20 hover:bg-white/30 rounded-full transition-colors duration-200"
+                        >
+                          <ChevronLeft size={32} className="text-white" />
+                        </button>
+                        <button
+                          onClick={() => setCurrentImageIndex((prev) =>
+                            prev === project.images.length - 1 ? 0 : prev + 1
+                          )}
+                          aria-label="Next image"
+                          className="absolute right-4 top-1/2 -translate-y-1/2 p-3 bg-white/20 hover:bg-white/30 rounded-full transition-colors duration-200"
+                        >
+                          <ChevronRight size={32} className="text-white" />
+                        </button>
+
+                        {/* Image Counter */}
+                        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 px-4 py-2 bg-black/50 rounded-full text-white text-sm font-medium">
+                          {currentImageIndex + 1} / {project.images.length}
+                        </div>
+                      </>
+                    )}
+
+                    {/* Project Title */}
+                    <div className="absolute top-4 left-4 px-4 py-2 bg-black/50 rounded-lg backdrop-blur-sm">
+                      <h3 className="text-white font-bold text-lg">{project.title}</h3>
+                    </div>
+                  </>
+                );
+              })()}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
     </div>
   );
