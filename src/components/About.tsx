@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { GraduationCap, Briefcase, MapPin, Users } from 'lucide-react';
 
@@ -11,7 +12,7 @@ const About: React.FC = () => {
       institution: 'University of Brawijaya',
       degree: 'Information Technology',
       location: 'Malang, Indonesia',
-      logo: 'assets/UB.png',
+      logo: '/assets/UB.png',
       description: [
         'Studied Information Technology, gaining expertise in software development, database management, and networking.',
         'Worked on various IT projects, including website development, system administration, and troubleshooting technical issues.'
@@ -22,7 +23,7 @@ const About: React.FC = () => {
       institution: 'SMKN 4 Malang',
       degree: 'Multimedia',
       location: 'Malang, Indonesia',
-      logo: 'assets/SMK4.png',
+      logo: '/assets/SMK4.png',
       description: [
         'Actively engaged in various projects focusing on graphic design, multimedia, and audiovisual processing.',
         'Developed creative and technical skills including proficiency in industry-standard software and tools.'
@@ -36,7 +37,7 @@ const About: React.FC = () => {
       role: 'Junior Full Stack Developer',
       company: 'Smartlink by PT. Ada Ide Langsung Jalan',
       location: 'On-Site - Malang, Indonesia',
-      logo: 'assets/Smartlink.png',
+      logo: '/assets/Smartlink.png',
       description: [
         'Backend Engineering (Golang): Built RESTful APIs using Fiber v2 and GORM, implementing Dependency Injection, Repository Pattern, and centralized error handling.',
         'Graph Database Implementation: Leveraged Neo4j to visualize and query deep hierarchical data.',
@@ -49,7 +50,7 @@ const About: React.FC = () => {
       role: 'Video Production Specialist',
       company: 'Luxor Photoworks',
       location: 'On-Site - Malang, Indonesia',
-      logo: 'assets/Luxor.png',
+      logo: '/assets/Luxor.png',
       description: [
         'Gained extensive skills and hands-on experience during an internship and work at a photography and videography agency specializing in weddings, studio shoots, and other creative projects.',
         'Worked on various aspects of photo and video production, including shooting, editing, and client collaboration.',
@@ -64,77 +65,77 @@ const About: React.FC = () => {
       role: 'Exprert Staff Bureau Central of Communication and Information',
       organization: 'Eksekutif Mahasiswa Universitas Brawijaya 2025',
       location: 'Universitas Brawijaya, Malang, Indonesia',
-      logo: 'assets/EMUB.png',
+      logo: '/assets/EMUB.png',
     },
     {
       period: '2023 - 2025',
       role: 'Director of Photography',
       organization: 'Nol Derajat Film',
       location: 'Universitas Brawijaya, Malang, Indonesia',
-      logo: 'assets/Nolder.png',
+      logo: '/assets/Nolder.png',
     },
     {
       period: '2025',
       role: 'Head of Media Production',
       organization: 'RAJA Brawijaya 2025',
       location: 'Universitas Brawijaya, Malang, Indonesia',
-      logo: 'assets/Rabraw25.png',
+      logo: '/assets/Rabraw25.png',
     },
     {
       period: '2024',
       role: 'Documentation Team Leader',
       organization: 'RAJA Brawijaya 2024',
       location: 'Universitas Brawijaya, Malang, Indonesia',
-      logo: 'assets/Rabraw24.png',
+      logo: '/assets/Rabraw24.png',
     },
     {
       period: '2025',
       role: 'Vice Coordinator of Design, Documentation & Media',
       organization: 'Brawijaya Film Festival 2025',
       location: 'Auditorium Universitas Brawijaya, Malang, Indonesia',
-      logo: 'assets/BYFEST.png',
+      logo: '/assets/BYFEST.png',
     },
     {
       period: '2025',
       role: 'Technical Documentation Specialist',
       organization: 'Rasvara Festival 2025',
       location: 'Sudimoro Boomi Carnival ,Malang, Indonesia',
-      logo: 'assets/Rasvara.jpg',
+      logo: '/assets/Rasvara.jpg',
     },
     {
       period: '2025',
       role: 'Technical Documentation Specialist',
       organization: 'Live Arena 2025',
       location: 'Dome UMM, Malang, Indonesia',
-      logo: 'assets/LiveArena.png',
+      logo: '/assets/LiveArena.png',
     },
     {
       period: '2024',
       role: 'Technical Documentation Specialist',
       organization: 'Piala Rektor Brawijaya 2024',
       location: 'GOR Pertamina Universitas Brawijaya, Malang, Indonesia',
-      logo: 'assets/Pilrek.png',
+      logo: '/assets/Pilrek.png',
     },
     {
       period: '2024',
       role: 'Technical Documentation Specialist',
       organization: 'BORN 9.0',
       location: 'Universitas Brawijaya, Malang, Indonesia',
-      logo: 'assets/Born.png',
+      logo: '/assets/Born.png',
     },
     {
       period: '2023',
       role: 'Technical Documentation Specialist',
       organization: 'Bharatayudha 2023',
       location: 'Lapangan Rektorat Universitas Brawijaya, Malang, Indonesia',
-      logo: 'assets/Bharatayudha.png',
+      logo: '/assets/Bharatayudha.png',
     },
     {
       period: '2023',
       role: 'Technical Documentation Specialist',
       organization: 'Entrepreneurial Euphoria Creanomic 2023',
       location: 'Samantha Krida Universitas Brawijaya, Malang, Indonesia',
-      logo: 'assets/Crea.png',
+      logo: '/assets/Crea.png',
     }
   ];
 
@@ -202,8 +203,8 @@ const About: React.FC = () => {
                     <div className="bg-blue-50 dark:bg-blue-800/50 p-6 rounded-xl border border-gray-100 dark:border-gray-700 hover:border-blue-200 dark:hover:border-blue-800 transition-colors">
                       <div className="flex gap-4 items-start">
                         {item.logo && (
-                          <div className="w-12 h-12 flex items-center justify-center shrink-0">
-                            <img src={item.logo} alt={item.institution} className="w-full h-full object-contain" />
+                          <div className="w-12 h-12 flex items-center justify-center shrink-0 relative">
+                            <Image src={item.logo} alt={item.institution} fill sizes="48px" className="object-contain" />
                           </div>
                         )}
                         <div className="flex flex-col gap-2 flex-1">
@@ -268,8 +269,8 @@ const About: React.FC = () => {
                     <div className="bg-purple-50 dark:bg-purple-800/50 p-6 rounded-xl border border-gray-100 dark:border-gray-700 hover:border-purple-200 dark:hover:border-purple-800 transition-colors">
                       <div className="flex gap-4 items-start">
                         {item.logo && (
-                          <div className="w-12 h-12 flex items-center justify-center shrink-0">
-                            <img src={item.logo} alt={item.company} className="w-full h-full object-contain" />
+                          <div className="w-12 h-12 flex items-center justify-center shrink-0 relative">
+                            <Image src={item.logo} alt={item.company} fill sizes="48px" className="object-contain" />
                           </div>
                         )}
                         <div className="flex flex-col gap-2 flex-1">
@@ -336,10 +337,12 @@ const About: React.FC = () => {
                     <div className="relative w-14 h-14 flex items-center justify-center shrink-0">
                       {/* Logo or Placeholder */}
                       {item.logo ? (
-                        <img
+                        <Image
                           src={item.logo}
                           alt={item.organization}
-                          className="w-full h-full object-contain"
+                          fill
+                          sizes="56px"
+                          className="object-contain"
                         />
                       ) : (
                         <div className="w-full h-full bg-white dark:bg-gray-700 rounded-xl flex items-center justify-center text-xl font-bold text-violet-600 dark:text-violet-400 shadow-sm border-2 border-violet-100 dark:border-violet-900/50">

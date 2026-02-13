@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, ExternalLink, Play } from 'lucide-react';
 
@@ -80,18 +81,23 @@ const ProjectGallery: React.FC<ProjectGalleryProps> = ({ title, subtitle, items 
                             className="relative group cursor-pointer break-inside-avoid rounded-xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 bg-gray-100 dark:bg-gray-800"
                             whileHover={{ y: -8, scale: 1.02, transition: { duration: 0.2 } }}
                         >
-                            {item.type === 'photo' ? (
-                                <img
+                        {item.type === 'photo' ? (
+                                <Image
                                     src={item.src}
                                     alt={item.title}
+                                    width={800}
+                                    height={600}
+                                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                                     className="w-full h-auto object-cover transform transition-transform duration-700 group-hover:scale-110"
                                 />
                             ) : (
                                 <div className="relative aspect-video">
-                                    <img
-                                        src={item.src || item.thumbnail} // Fallback for video thumbnail
+                                    <Image
+                                        src={item.src || item.thumbnail || ''}
                                         alt={item.title}
-                                        className="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-110"
+                                        fill
+                                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                                        className="object-cover transform transition-transform duration-700 group-hover:scale-110"
                                     />
                                     <div className="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/50 transition-colors duration-300">
                                         <motion.div
@@ -136,11 +142,16 @@ const ProjectGallery: React.FC<ProjectGalleryProps> = ({ title, subtitle, items 
                             </button>
 
                             {items.find(i => i.id === selectedId)?.type === 'photo' ? (
-                                <img
-                                    src={items.find(i => i.id === selectedId)?.src}
-                                    alt={items.find(i => i.id === selectedId)?.title}
-                                    className="w-full max-h-[80vh] object-contain bg-black"
-                                />
+                                <div className="relative w-full" style={{ maxHeight: '80vh' }}>
+                                    <Image
+                                        src={items.find(i => i.id === selectedId)?.src || ''}
+                                        alt={items.find(i => i.id === selectedId)?.title || ''}
+                                        width={1200}
+                                        height={800}
+                                        sizes="(max-width: 768px) 100vw, 896px"
+                                        className="w-full h-auto max-h-[80vh] object-contain bg-black"
+                                    />
+                                </div>
                             ) : (() => {
                                 const selectedItem = items.find(i => i.id === selectedId);
                                 const videoUrl = selectedItem?.videoUrl;

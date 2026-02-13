@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ExternalLink, ChevronLeft, ChevronRight, Maximize2, Pause, Play } from 'lucide-react';
 
@@ -139,10 +140,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
         {/* Image Slider */}
         <div className="relative w-full h-full">
           <AnimatePresence initial={false} mode="wait">
-            <motion.img
+            <motion.div
               key={currentSlideIndex}
-              src={project.images[currentSlideIndex]}
-              alt={`${project.title} - ${currentSlideIndex + 1}`}
               variants={fadeVariants}
               initial="enter"
               animate="center"
@@ -162,8 +161,16 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
                   handleSwipe(-1);
                 }
               }}
-              className="absolute w-full h-full object-cover cursor-grab active:cursor-grabbing"
-            />
+              className="absolute w-full h-full cursor-grab active:cursor-grabbing"
+            >
+              <Image
+                src={project.images[currentSlideIndex]}
+                alt={`${project.title} - ${currentSlideIndex + 1}`}
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover"
+              />
+            </motion.div>
           </AnimatePresence>
           
           {/* Overlay gradient */}
@@ -293,9 +300,11 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
               className={`flex items-center gap-2 px-3 py-2 ${colors.tech} border rounded-lg hover:scale-105 transition-transform duration-200`}
             >
               {techIcons[tech] && (
-                <img 
+                <Image 
                   src={techIcons[tech]} 
                   alt={tech}
+                  width={20}
+                  height={20}
                   className="w-5 h-5"
                 />
               )}

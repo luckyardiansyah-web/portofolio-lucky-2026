@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Smartphone, Monitor, ChevronLeft, ChevronRight, X } from 'lucide-react';
 import ProjectGallery, { GalleryItem } from './ProjectGallery';
@@ -153,36 +154,36 @@ const Projects: React.FC = () => {
   // 3. Photography Data
   const photographyItems: GalleryItem[] = [
     // Stage Photography
-    { id: 'p1', type: 'photo', title: 'Nadin Amizah', category: 'Stage Photography', src: 'images/LUC08567.jpg', description: 'Live Arena 2025 UMM Dome Malang, by Lucky Ardiansyah' },
-    { id: 'p2', type: 'photo', title: 'Nadin Amizah', category: 'Stage Photography', src: 'images/DSCF6318.jpg', description: 'Live Arena 2025 UMM Dome Malang, by Lucky Ardiansyah' },
-    { id: 'p3', type: 'photo', title: 'Barasuara', category: 'Stage Photography', src: 'images/DSCF6385.jpg', description: 'Live Arena 2025 UMM Dome Malang, by Lucky Ardiansyah' },
-    { id: 'p4', type: 'photo', title: 'Barasuara', category: 'Stage Photography', src: 'images/LUC08723.jpg', description: 'Live Arena 2025 UMM Dome Malang, by Lucky Ardiansyah' },
-    { id: 'p5', type: 'photo', title: 'Tulus', category: 'Stage Photography', src: 'images/DSCF6903.jpg', description: 'Live Arena 2025 UMM Dome Malang, by Lucky Ardiansyah' },
-    { id: 'p6', type: 'photo', title: 'Tulus', category: 'Stage Photography', src: 'images/LUC08874.jpg', description: 'Live Arena 2025 UMM Dome Malang, by Lucky Ardiansyah' },
-    { id: 'p7', type: 'photo', title: 'Drizzly', category: 'Stage Photography', src: 'images/LUC08294.jpg', description: 'Live Arena 2025 UMM Dome Malang, by Lucky Ardiansyah' },
-    { id: 'p8', type: 'photo', title: 'Ari Lesmana', category: 'Stage Photography', src: 'images/DSCF5858.jpg', description: 'Live Arena 2025 UMM Dome Malang, by Lucky Ardiansyah' },
-    { id: 'p9', type: 'photo', title: 'Bernadya', category: 'Stage Photography', src: 'images/FRS00855.jpg', description: 'Rasvara Festival 2025, by Lucky Ardiansyah' },
-    { id: 'p10', type: 'photo', title: 'Bernadya', category: 'Stage Photography', src: 'images/FRS01001.jpg', description: 'Rasvara Festival 2025, by Lucky Ardiansyah' },
-    { id: 'p11', type: 'photo', title: 'Hindia', category: 'Stage Photography', src: 'images/FRS01594.jpg', description: 'Rasvara Festival 2025, by Lucky Ardiansyah' },
-    { id: 'p12', type: 'photo', title: 'Hindia', category: 'Stage Photography', src: 'images/FRS01623.jpg', description: 'Rasvara Festival 2025, by Lucky Ardiansyah' },
+    { id: 'p1', type: 'photo', title: 'Nadin Amizah', category: 'Stage Photography', src: '/images/LUC08567.jpg', description: 'Live Arena 2025 UMM Dome Malang, by Lucky Ardiansyah' },
+    { id: 'p2', type: 'photo', title: 'Nadin Amizah', category: 'Stage Photography', src: '/images/DSCF6318.jpg', description: 'Live Arena 2025 UMM Dome Malang, by Lucky Ardiansyah' },
+    { id: 'p3', type: 'photo', title: 'Barasuara', category: 'Stage Photography', src: '/images/DSCF6385.jpg', description: 'Live Arena 2025 UMM Dome Malang, by Lucky Ardiansyah' },
+    { id: 'p4', type: 'photo', title: 'Barasuara', category: 'Stage Photography', src: '/images/LUC08723.jpg', description: 'Live Arena 2025 UMM Dome Malang, by Lucky Ardiansyah' },
+    { id: 'p5', type: 'photo', title: 'Tulus', category: 'Stage Photography', src: '/images/DSCF6903.jpg', description: 'Live Arena 2025 UMM Dome Malang, by Lucky Ardiansyah' },
+    { id: 'p6', type: 'photo', title: 'Tulus', category: 'Stage Photography', src: '/images/LUC08874.jpg', description: 'Live Arena 2025 UMM Dome Malang, by Lucky Ardiansyah' },
+    { id: 'p7', type: 'photo', title: 'Drizzly', category: 'Stage Photography', src: '/images/LUC08294.jpg', description: 'Live Arena 2025 UMM Dome Malang, by Lucky Ardiansyah' },
+    { id: 'p8', type: 'photo', title: 'Ari Lesmana', category: 'Stage Photography', src: '/images/DSCF5858.jpg', description: 'Live Arena 2025 UMM Dome Malang, by Lucky Ardiansyah' },
+    { id: 'p9', type: 'photo', title: 'Bernadya', category: 'Stage Photography', src: '/images/FRS00855.jpg', description: 'Rasvara Festival 2025, by Lucky Ardiansyah' },
+    { id: 'p10', type: 'photo', title: 'Bernadya', category: 'Stage Photography', src: '/images/FRS01001.jpg', description: 'Rasvara Festival 2025, by Lucky Ardiansyah' },
+    { id: 'p11', type: 'photo', title: 'Hindia', category: 'Stage Photography', src: '/images/FRS01594.jpg', description: 'Rasvara Festival 2025, by Lucky Ardiansyah' },
+    { id: 'p12', type: 'photo', title: 'Hindia', category: 'Stage Photography', src: '/images/FRS01623.jpg', description: 'Rasvara Festival 2025, by Lucky Ardiansyah' },
 
 
     // Wedding
-    { id: 'p21', type: 'photo', title: 'Melly & Calvin', category: 'Wedding', src: 'images/ZKA00776.jpg', description: 'for Luxor Photoworks by Lucky Ardiansyah' },
-    { id: 'p22', type: 'photo', title: 'Melly & Calvin', category: 'Wedding', src: 'images/ZKA01197.jpg', description: 'for Luxor Photoworks by Lucky Ardiansyah' },
-    { id: 'p23', type: 'photo', title: 'Melly & Calvin', category: 'Wedding', src: 'images/ZKA00868.jpg', description: 'for Luxor Photoworks by Lucky Ardiansyah' },
-    { id: 'p24', type: 'photo', title: 'Melly & Calvin', category: 'Wedding', src: 'images/ZKA00800.jpg', description: 'for Luxor Photoworks by Lucky Ardiansyah' },
-    { id: 'p25', type: 'photo', title: 'Melly & Calvin', category: 'Wedding', src: 'images/ZKA00822.jpg', description: 'for Luxor Photoworks by Lucky Ardiansyah' },
-    { id: 'p26', type: 'photo', title: 'Nimalia & Afrizal', category: 'Wedding', src: 'images/AAI00425.jpg', description: 'for Callanoire Photography by Lucky Ardiansyah' },
-    { id: 'p27', type: 'photo', title: 'Nimalia & Afrizal', category: 'Wedding', src: 'images/AAI00440.jpg', description: 'for Callanoire Photography by Lucky Ardiansyah' },
-    { id: 'p28', type: 'photo', title: 'Nimalia & Afrizal', category: 'Wedding', src: 'images/AAI00504.jpg', description: 'for Callanoire Photography by Lucky Ardiansyah' },
-    { id: 'p29', type: 'photo', title: 'Nimalia & Afrizal', category: 'Wedding', src: 'images/AAI00958.jpg', description: 'for Callanoire Photography by Lucky Ardiansyah' },
-    { id: 'p30', type: 'photo', title: 'Nimalia & Afrizal', category: 'Wedding', src: 'images/AAI00917.jpg', description: 'for Callanoire Photography by Lucky Ardiansyah' },
-    { id: 'p31', type: 'photo', title: 'Bahar & Mifta', category: 'Wedding', src: 'images/FRS09375.jpg', description: 'for Ranah Asmara by Lucky Ardiansyah' },
-    { id: 'p32', type: 'photo', title: 'Bahar & Mifta', category: 'Wedding', src: 'images/FRS09360.jpg', description: 'for Ranah Asmara by Lucky Ardiansyah' },
-    { id: 'p33', type: 'photo', title: 'Bahar & Mifta', category: 'Wedding', src: 'images/FRS09432.jpg', description: 'for Ranah Asmara by Lucky Ardiansyah' },
-    { id: 'p34', type: 'photo', title: 'Bahar & Mifta', category: 'Wedding', src: 'images/FRS09465.jpg', description: 'for Ranah Asmara by Lucky Ardiansyah' },
-    { id: 'p35', type: 'photo', title: 'Bahar & Mifta', category: 'Wedding', src: 'images/FRS09506.jpg', description: 'for Ranah Asmara by Lucky Ardiansyah' },
+    { id: 'p21', type: 'photo', title: 'Melly & Calvin', category: 'Wedding', src: '/images/ZKA00776.jpg', description: 'for Luxor Photoworks by Lucky Ardiansyah' },
+    { id: 'p22', type: 'photo', title: 'Melly & Calvin', category: 'Wedding', src: '/images/ZKA01197.jpg', description: 'for Luxor Photoworks by Lucky Ardiansyah' },
+    { id: 'p23', type: 'photo', title: 'Melly & Calvin', category: 'Wedding', src: '/images/ZKA00868.jpg', description: 'for Luxor Photoworks by Lucky Ardiansyah' },
+    { id: 'p24', type: 'photo', title: 'Melly & Calvin', category: 'Wedding', src: '/images/ZKA00800.jpg', description: 'for Luxor Photoworks by Lucky Ardiansyah' },
+    { id: 'p25', type: 'photo', title: 'Melly & Calvin', category: 'Wedding', src: '/images/ZKA00822.jpg', description: 'for Luxor Photoworks by Lucky Ardiansyah' },
+    { id: 'p26', type: 'photo', title: 'Nimalia & Afrizal', category: 'Wedding', src: '/images/AAI00425.jpg', description: 'for Callanoire Photography by Lucky Ardiansyah' },
+    { id: 'p27', type: 'photo', title: 'Nimalia & Afrizal', category: 'Wedding', src: '/images/AAI00440.jpg', description: 'for Callanoire Photography by Lucky Ardiansyah' },
+    { id: 'p28', type: 'photo', title: 'Nimalia & Afrizal', category: 'Wedding', src: '/images/AAI00504.jpg', description: 'for Callanoire Photography by Lucky Ardiansyah' },
+    { id: 'p29', type: 'photo', title: 'Nimalia & Afrizal', category: 'Wedding', src: '/images/AAI00958.jpg', description: 'for Callanoire Photography by Lucky Ardiansyah' },
+    { id: 'p30', type: 'photo', title: 'Nimalia & Afrizal', category: 'Wedding', src: '/images/AAI00917.jpg', description: 'for Callanoire Photography by Lucky Ardiansyah' },
+    { id: 'p31', type: 'photo', title: 'Bahar & Mifta', category: 'Wedding', src: '/images/FRS09375.jpg', description: 'for Ranah Asmara by Lucky Ardiansyah' },
+    { id: 'p32', type: 'photo', title: 'Bahar & Mifta', category: 'Wedding', src: '/images/FRS09360.jpg', description: 'for Ranah Asmara by Lucky Ardiansyah' },
+    { id: 'p33', type: 'photo', title: 'Bahar & Mifta', category: 'Wedding', src: '/images/FRS09432.jpg', description: 'for Ranah Asmara by Lucky Ardiansyah' },
+    { id: 'p34', type: 'photo', title: 'Bahar & Mifta', category: 'Wedding', src: '/images/FRS09465.jpg', description: 'for Ranah Asmara by Lucky Ardiansyah' },
+    { id: 'p35', type: 'photo', title: 'Bahar & Mifta', category: 'Wedding', src: '/images/FRS09506.jpg', description: 'for Ranah Asmara by Lucky Ardiansyah' },
   ];
 
   // 4. Videography Data
@@ -301,15 +302,23 @@ const Projects: React.FC = () => {
                 return (
                   <>
                     {/* Main Image */}
-                    <motion.img
+                    <motion.div
                       key={currentImageIndex}
                       initial={{ opacity: 0, scale: 0.9 }}
                       animate={{ opacity: 1, scale: 1 }}
                       exit={{ opacity: 0, scale: 0.9 }}
-                      src={project.images[currentImageIndex]}
-                      alt={`${project.title} - ${currentImageIndex + 1}`}
-                      className="w-full h-auto max-h-[80vh] object-contain rounded-lg shadow-2xl"
-                    />
+                      className="relative w-full"
+                      style={{ maxHeight: '80vh' }}
+                    >
+                      <Image
+                        src={project.images[currentImageIndex]}
+                        alt={`${project.title} - ${currentImageIndex + 1}`}
+                        width={1200}
+                        height={800}
+                        sizes="(max-width: 768px) 100vw, 1152px"
+                        className="w-full h-auto max-h-[80vh] object-contain rounded-lg shadow-2xl"
+                      />
+                    </motion.div>
 
                     {/* Navigation Arrows */}
                     {project.images.length > 1 && (

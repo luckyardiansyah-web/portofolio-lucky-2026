@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Play, MousePointer2 } from 'lucide-react';
 
@@ -108,17 +109,24 @@ const Hero: React.FC = () => {
           >
             {/* Replace with a transparent PNG of yourself for best effect */}
             <AnimatePresence mode="wait">
-              <motion.img
+              <motion.div
                 key={currentImageIndex}
-                src={profileImages[currentImageIndex]}
-                alt="Lucky Ardiansyah"
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -20 }}
                 transition={{ duration: 0.5 }}
-                className="w-full max-h-125 md:max-h-162.5 lg:max-h-187.5 object-contain object-bottom scale-110"
+                className="relative w-full max-h-125 md:max-h-162.5 lg:max-h-187.5 h-full scale-110"
                 style={{ maskImage: 'linear-gradient(to bottom, black 90%, transparent 100%)' }}
-              />
+              >
+                <Image
+                  src={profileImages[currentImageIndex]}
+                  alt="Lucky Ardiansyah"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="object-contain object-bottom"
+                  priority={currentImageIndex === 0}
+                />
+              </motion.div>
             </AnimatePresence>
           </motion.div>
 
