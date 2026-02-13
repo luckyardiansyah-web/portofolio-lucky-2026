@@ -110,7 +110,7 @@ const ProjectGallery: React.FC<ProjectGalleryProps> = ({ title, subtitle, items 
                                 </div>
                             )}
 
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6 translate-y-4 group-hover:translate-y-0 transition-transform">
+                            <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-end p-6 translate-y-4 group-hover:translate-y-0">
                                 <h4 className="text-white font-bold text-lg mb-1">{item.title}</h4>
                                 {item.category && <span className="inline-block px-2 py-1 bg-white/20 backdrop-blur-md rounded-md text-white/90 text-xs font-medium w-fit">{item.category}</span>}
                             </div>
@@ -136,13 +136,14 @@ const ProjectGallery: React.FC<ProjectGalleryProps> = ({ title, subtitle, items 
                         >
                             <button
                                 onClick={(e) => { e.stopPropagation(); setSelectedId(null); }}
+                                aria-label="Close preview"
                                 className="absolute top-4 right-4 p-2 bg-black/50 hover:bg-black/70 text-white rounded-full z-20 backdrop-blur transition-colors"
                             >
                                 <X size={20} />
                             </button>
 
                             {items.find(i => i.id === selectedId)?.type === 'photo' ? (
-                                <div className="relative w-full" style={{ maxHeight: '80vh' }}>
+                                <div className="relative w-full max-h-[80vh]">
                                     <Image
                                         src={items.find(i => i.id === selectedId)?.src || ''}
                                         alt={items.find(i => i.id === selectedId)?.title || ''}
@@ -183,7 +184,7 @@ const ProjectGallery: React.FC<ProjectGalleryProps> = ({ title, subtitle, items 
                                 }
 
                                 return (
-                                    <div className={`w-full bg-black ${isInstagram ? 'aspect-[9/16] max-h-[80vh]' : 'aspect-video'}`}>
+                                    <div className={`w-full bg-black ${isInstagram ? 'aspect-9/16 max-h-[80vh]' : 'aspect-video'}`}>
                                         {embedUrl ? (
                                             <iframe
                                                 src={embedUrl}
