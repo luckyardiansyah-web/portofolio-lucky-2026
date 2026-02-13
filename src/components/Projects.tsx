@@ -42,7 +42,7 @@ const Projects: React.FC = () => {
       title: 'LuckyQuiz',
       description: 'An interactive quiz application with real-time scoring, multiple categories, and user progress tracking. Engaging UI with animations and responsive design. You can use username/password: admin/admin to login as a guest user.',
       tech: ['Next.js', 'TypeScript', 'Tailwind CSS'],
-      category: 'Full Stack Web App',
+      category: 'Frontend Web App',
       liveUrl: 'https://luckyquiz.vercel.app',
       status: 'live' as const,
       images: [
