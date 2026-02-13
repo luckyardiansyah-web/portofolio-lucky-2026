@@ -31,6 +31,7 @@ export default function RootLayout({
     <html lang="en" className="scroll-smooth">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-gray-100 transition-colors duration-300 overflow-x-hidden`}
+        suppressHydrationWarning
       >
         <Navbar />
         <main className="min-h-screen">

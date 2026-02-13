@@ -21,10 +21,10 @@ const Hero: React.FC = () => {
     return () => clearInterval(timer);
   }, []);
   return (
-    <section className="min-h-screen flex flex-col pt-20 md:pt-32 relative overflow-hidden bg-white dark:bg-gray-950">
+    <section className="min-h-screen flex flex-col pt-20 md:pt-32 relative bg-white dark:bg-gray-950 overflow-x-hidden">
 
       {/* Main Content Area */}
-      <div className="container mx-auto px-4 md:px-6 z-10 grow flex flex-col md:flex-row items-center gap-6 md:gap-20">
+      <div className="container mx-auto px-4 md:px-6 z-10 grow flex flex-col md:flex-row items-center gap-4 md:gap-20">
 
         {/* Left Column: Text */}
         <div className="flex-1 text-center md:text-left relative z-20">
@@ -81,11 +81,11 @@ const Hero: React.FC = () => {
         </div>
 
         {/* Right Column: Image & Decorations */}
-        <div className="flex-1 relative w-full h-112.5 md:h-150 lg:h-175 flex items-end justify-center overflow-visible">
+        <div className="relative w-full h-[70vw] min-h-[300px] max-h-[450px] md:flex-1 md:h-150 md:max-h-none md:min-h-0 lg:h-175 flex items-end justify-center shrink-0">
 
           {/* Organic Background Shape */}
           <motion.div
-            className="absolute inset-0 bg-linear-to-r from-blue-600 to-[#222281] dark:from-blue-400 dark:to-[#222281]  rounded-[30%_70%_70%_30%/30%_30%_70%_70%] z-0"
+            className="absolute inset-[5%] md:inset-0 bg-linear-to-r from-blue-600 to-[#222281] dark:from-blue-400 dark:to-[#222281] rounded-[30%_70%_70%_30%/30%_30%_70%_70%] z-0"
             animate={{
               borderRadius: [
                 "30% 70% 70% 30% / 30% 30% 70% 70%",
@@ -102,12 +102,11 @@ const Hero: React.FC = () => {
 
           {/* Profile Image (Cutout style) */}
           <motion.div
-            className="relative z-10 w-full md:w-[80%] h-full flex items-end justify-center"
+            className="relative z-10 w-[85%] md:w-[80%] h-full"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5 }}
           >
-            {/* Replace with a transparent PNG of yourself for best effect */}
             <AnimatePresence mode="wait">
               <motion.div
                 key={currentImageIndex}
@@ -115,14 +114,14 @@ const Hero: React.FC = () => {
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -20 }}
                 transition={{ duration: 0.5 }}
-                className="relative w-full max-h-125 md:max-h-162.5 lg:max-h-187.5 h-full scale-110"
+                className="absolute inset-0"
                 style={{ maskImage: 'linear-gradient(to bottom, black 90%, transparent 100%)' }}
               >
                 <Image
                   src={profileImages[currentImageIndex]}
                   alt="Lucky Ardiansyah"
                   fill
-                  sizes="(max-width: 768px) 100vw, 50vw"
+                  sizes="(max-width: 768px) 80vw, 50vw"
                   className="object-contain object-bottom"
                   priority={currentImageIndex === 0}
                 />
@@ -135,7 +134,7 @@ const Hero: React.FC = () => {
             text="Full Stack Developer"
             color="bg-purple-100 text-purple-800"
             icon={<MousePointer2 size={16} className="text-purple-600" fill="currentColor" />}
-            className="top-10 md:top-20 left-2 md:left-10"
+            className="top-4 md:top-20 left-0 md:left-10"
             delay={0.5}
           />
 
@@ -143,7 +142,7 @@ const Hero: React.FC = () => {
             text="Photographer"
             color="bg-purple-100 text-purple-800"
             icon={<MousePointer2 size={16} className="text-purple-600" fill="currentColor" />}
-            className="bottom-20 md:bottom-32 right-2 md:right-10"
+            className="bottom-12 md:bottom-32 right-0 md:right-10"
             delay={0.7}
           />
 
@@ -151,7 +150,7 @@ const Hero: React.FC = () => {
             text="UI/UX Designer"
             color="bg-blue-100 text-blue-800"
             icon={<MousePointer2 size={16} className="text-blue-600" fill="currentColor" />}
-            className="top-1/3 right-0 md:-right-12"
+            className="top-1/3 -right-2 md:-right-12"
             delay={0.9}
           />
 
@@ -159,7 +158,7 @@ const Hero: React.FC = () => {
             text="Videographer"
             color="bg-violet-100 text-violet-800"
             icon={<MousePointer2 size={16} className="text-violet-600" fill="currentColor" />}
-            className="top-1/2 left-0 md:-left-10"
+            className="top-1/2 -left-2 md:-left-10"
             delay={0.9}
           />
 
@@ -167,7 +166,7 @@ const Hero: React.FC = () => {
           <motion.div
             animate={{ rotate: 360 }}
             transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-            className="absolute top-4 md:top-10 right-2 md:-right-10 w-20 h-20 md:w-32 md:h-32 bg-gray-900 dark:bg-white rounded-full flex items-center justify-center p-2 z-20 shadow-xl"
+            className="absolute -top-2 md:top-10 -right-2 md:-right-10 w-16 h-16 md:w-32 md:h-32 bg-gray-900 dark:bg-white rounded-full flex items-center justify-center p-2 z-20 shadow-xl"
           >
             <div className="relative w-full h-full flex items-center justify-center">
               <svg viewBox="0 0 100 100" className="w-full h-full absolute animate-spin-slow">
@@ -230,7 +229,7 @@ const FloatingBadge = ({ text, color, icon, className, delay }: { text: string, 
       <div className={`p-0.5 md:p-1 bg-white rounded-full`}>
         {icon}
       </div>
-      <span className="hidden sm:inline">{text}</span>
+      <span className="text-[10px] sm:text-sm">{text}</span>
     </motion.div>
   </motion.div>
 );
