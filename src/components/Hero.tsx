@@ -33,13 +33,13 @@ const Hero: React.FC = () => {
             initial={{ opacity: 0, y: -20, rotate: -5 }}
             animate={{ opacity: 1, y: 0, rotate: -5 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="absolute -top-16 left-1/2 -translate-x-1/2 md:left-0 md:translate-x-0 bg-white dark:bg-gray-800 border-2 border-gray-900 dark:border-white px-4 py-2 rounded-lg shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] dark:shadow-[4px_4px_0px_0px_rgba(255,255,255,1)] hidden md:block"
+            className="relative md:absolute md:-top-16 md:left-0 md:translate-x-0 inline-block mb-4 md:mb-0 bg-white dark:bg-gray-800 border-2 border-gray-900 dark:border-white px-3 md:px-4 py-1.5 md:py-2 rounded-lg shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] dark:shadow-[4px_4px_0px_0px_rgba(255,255,255,1)]"
           >
             <div className="absolute -left-1.5 -top-1.5 w-3 h-3 bg-blue-600 border border-gray-900" />
             <div className="absolute -right-1.5 -top-1.5 w-3 h-3 bg-blue-600 border border-gray-900" />
             <div className="absolute -left-1.5 -bottom-1.5 w-3 h-3 bg-blue-600 border border-gray-900" />
             <div className="absolute -right-1.5 -bottom-1.5 w-3 h-3 bg-blue-600 border border-gray-900" />
-            <span className="font-bold text-gray-900 dark:text-white">Hello, World!</span>
+            <span className="font-bold text-gray-900 dark:text-white text-sm md:text-base">Hello, World!</span>
           </motion.div>
 
           <motion.h1
