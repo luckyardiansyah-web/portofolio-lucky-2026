@@ -189,8 +189,14 @@ const Projects: React.FC = () => {
   // 4. Videography Data
   const videographyItems: GalleryItem[] = [
     { id: 'v1', type: 'video', title: 'After Movie RAJA Brawijaya 2024', category: 'Aftermovie', src: 'https://img.youtube.com/vi/Fnpda4PMJKU/maxresdefault.jpg', description: 'After Movie RAJA Brawijaya 2024', videoUrl: 'https://youtu.be/Fnpda4PMJKU?si=VxMdWVvGWK42nNjP' },
-    { id: 'v2', type: 'video', title: 'Elare', category: 'Commercial Product', src: 'https://scontent.cdninstagram.com/v/t51.29350-15/470925395_1111992610634730_1859033913652732639_n.jpg', description: 'Commercial Product - Elare', videoUrl: 'https://www.instagram.com/reel/DDZnuc4P6kU/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==' },
-    { id: 'v3', type: 'video', title: 'After Movie Rasvara Festival 2025', category: 'Aftermovie', src: 'https://scontent.cdninstagram.com/v/t51.29350-15/472044738_1110754830816859_4829464476464949092_n.jpg', description: 'After Movie Rasvara Festival 2025', videoUrl: 'https://www.instagram.com/reel/DKEalpKA0Zk/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==' },
+    { id: 'v2', type: 'video', title: 'Elare', category: 'Commercial Product', src: '/project_images/Elare.png', description: 'Commercial Product - Elare', videoUrl: 'https://www.instagram.com/reel/DDZnuc4P6kU/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==' },
+    { id: 'v3', type: 'video', title: 'After Movie Rasvara Festival 2025', category: 'Aftermovie', src: '/project_images/Rasvara.png', description: 'After Movie Rasvara Festival 2025', videoUrl: 'https://www.instagram.com/reel/DKEalpKA0Zk/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==' },
+    { id: 'v4', type: 'video', title: 'Company Profile EM UB 2025', category: 'Company Profile', src: 'https://img.youtube.com/vi/olO89VQpLWo/maxresdefault.jpg', description: 'Company Profile EM UB 2025', videoUrl: 'https://youtu.be/olO89VQpLWo?si=yEfnQ3JSEwajriwJ' },
+    { id: 'v5', type: 'video', title: 'Mengalah atau Kalah', category: 'Short Movie', src: 'https://img.youtube.com/vi/AmYA7uRBHZ0/maxresdefault.jpg', description: 'Mengalah atau Kalah - Short Movie', videoUrl: 'https://www.youtube.com/watch?v=AmYA7uRBHZ0&t=91s' },
+    { id: 'v6', type: 'video', title: 'Setengah Lingkaran', category: 'Short Movie', src: 'https://img.youtube.com/vi/K3V0TWC3rTs/maxresdefault.jpg', description: 'Setengah Lingkaran - Short Movie', videoUrl: 'https://www.youtube.com/watch?v=K3V0TWC3rTs&t=75s' },
+    { id: 'v9', type: 'video', title: 'Lembaran Terakhir', category: 'Short Movie', src: '/project_images/Lembaran Terakhir.png', description: 'Lembaran Terakhir - Short Movie', videoUrl: 'https://www.instagram.com/reel/DHQBt8YJASL/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==' },
+    { id: 'v7', type: 'video', title: 'After Movie Bharatayudha 2023', category: 'Aftermovie', src: '/project_images/Bharata.png', description: 'After Movie Bharatayudha 2023', videoUrl: 'https://www.instagram.com/reel/C6OlGHNJ9Td/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==' },
+    { id: 'v8', type: 'video', title: 'After Movie BORN 9.0', category: 'Aftermovie', src: '/project_images/BORN.png', description: 'After Movie BORN 9.0', videoUrl: 'https://www.instagram.com/reel/DD8sTEHv2pL/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==' },
   ];
 
   return (
