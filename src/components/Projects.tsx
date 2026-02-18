@@ -75,7 +75,7 @@ const Projects: React.FC = () => {
       ]
     },
     {
-      title: 'Aglimpse Cinema',
+      title: 'Aglimpse',
       description: 'A Netflix-style streaming platform showcasing movie and TV show trailers with advanced filtering, search, and personalized recommendations.',
       tech: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Node.js'],
       category: 'Entertainment Platform',
