@@ -46,12 +46,7 @@ const Projects: React.FC = () => {
       liveUrl: 'https://luckyquiz.vercel.app',
       status: 'live' as const,
       images: [
-        '/project_images/LuckyQuiz_1.png',
-        '/project_images/LuckyQuiz_2.png',
-        '/project_images/LuckyQuiz_3.png',
-        '/project_images/LuckyQuiz_4.png',
-        '/project_images/LuckyQuiz_5.png',
-        '/project_images/LuckyQuiz_6.png',
+        '/project_images/LuckyQuiz.png',
       ]
     },
     {
@@ -59,7 +54,7 @@ const Projects: React.FC = () => {
       description: 'A comprehensive task management platform for managing tasks, customer issues, worksheets, and team collaboration with real-time updates.',
       tech: ['Next.js', 'React', 'TypeScript', 'Golang', 'Neo4j', 'PostgreSQL', 'Redux', 'Tailwind CSS'],
       category: 'Enterprise Web App',
-      liveUrl: '#',
+      liveUrl: 'https://jk.smartlink.id/',
       status: 'live' as const,
       images: [
         '/project_images/JalanKerja_1.png',
@@ -79,8 +74,8 @@ const Projects: React.FC = () => {
       description: 'A Netflix-style streaming platform showcasing movie and TV show trailers with advanced filtering, search, and personalized recommendations.',
       tech: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Node.js'],
       category: 'Entertainment Platform',
-      liveUrl: '#',
-      status: 'development' as const,
+      liveUrl: 'https://aglimpse-cinema.vercel.app/',
+      status: 'live' as const,
       images: [
         'https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=800&q=80',
         'https://images.unsplash.com/photo-1440404653325-ab127d49abc1?w=800&q=80',
@@ -170,6 +165,20 @@ const Projects: React.FC = () => {
     { id: 'p33', type: 'photo', title: 'Bahar & Mifta', category: 'Wedding', src: '/images/FRS09432.jpg', description: 'for Ranah Asmara by Lucky Ardiansyah' },
     { id: 'p34', type: 'photo', title: 'Bahar & Mifta', category: 'Wedding', src: '/images/FRS09465.jpg', description: 'for Ranah Asmara by Lucky Ardiansyah' },
     { id: 'p35', type: 'photo', title: 'Bahar & Mifta', category: 'Wedding', src: '/images/FRS09506.jpg', description: 'for Ranah Asmara by Lucky Ardiansyah' },
+
+    //Couples
+    { id: 'p50', type: 'photo', title: 'Levrita & Bagas', category: 'Couples', src: '/images/DSC06064.jpg', description: 'for Luxor Photoworks by Lucky Ardiansyah' },
+    { id: 'p51', type: 'photo', title: 'Levrita & Bagas', category: 'Couples', src: '/images/LXR04199.jpg', description: 'for Luxor Photoworks by Lucky Ardiansyah' },
+    { id: 'p52', type: 'photo', title: 'Levrita & Bagas', category: 'Couples', src: '/images/LXR03742.jpg', description: 'for Luxor Photoworks by Lucky Ardiansyah' },
+    { id: 'p53', type: 'photo', title: 'Levrita & Bagas', category: 'Couples', src: '/images/LXR03761.jpg', description: 'for Luxor Photoworks by Lucky Ardiansyah' },
+    { id: 'p54', type: 'photo', title: 'Levrita & Bagas', category: 'Couples', src: '/images/LXR03808.jpg', description: 'for Luxor Photoworks by Lucky Ardiansyah' },
+
+    //Maternity
+    { id: 'p60', type: 'photo', title: 'Maternity', category: 'Maternity', src: '/images/DSC09758.jpg', description: 'for Luxor Studio by Lucky Ardiansyah' },
+    { id: 'p61', type: 'photo', title: 'Maternity', category: 'Maternity', src: '/images/DSC00187.jpg', description: 'for Luxor Studio by Lucky Ardiansyah' },
+    { id: 'p62', type: 'photo', title: 'Maternity', category: 'Maternity', src: '/images/DSC00186.jpg', description: 'for Luxor Studio by Lucky Ardiansyah' },
+    { id: 'p63', type: 'photo', title: 'Maternity', category: 'Maternity', src: '/images/DSC09605.jpg', description: 'for Luxor Studio by Lucky Ardiansyah' },
+    { id: 'p64', type: 'photo', title: 'Maternity', category: 'Maternity', src: '/images/DSC00188.jpg', description: 'for Luxor Studio by Lucky Ardiansyah' },
   ];
 
   // 4. Videography Data
