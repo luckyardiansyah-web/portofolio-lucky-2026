@@ -147,6 +147,8 @@ const Projects: React.FC = () => {
     { id: 'p10', type: 'photo', title: 'Bernadya', category: 'Stage Photography', src: '/images/FRS01001.jpg', description: 'Rasvara Festival 2025, by Lucky Ardiansyah' },
     { id: 'p11', type: 'photo', title: 'Hindia', category: 'Stage Photography', src: '/images/FRS01594.jpg', description: 'Rasvara Festival 2025, by Lucky Ardiansyah' },
     { id: 'p12', type: 'photo', title: 'Hindia', category: 'Stage Photography', src: '/images/FRS01623.jpg', description: 'Rasvara Festival 2025, by Lucky Ardiansyah' },
+    { id: 'p13', type: 'photo', title: 'Dudy Oris', category: 'Stage Photography', src: '/images/Rabraw24 (1).jpg', description: 'RAJA Brawijaya 2024, by Lucky Ardiansyah' },
+    { id: 'p15', type: 'photo', title: 'Dudy Oris', category: 'Stage Photography', src: '/images/Rabraw24 (3).jpg', description: 'RAJA Brawijaya 2024, by Lucky Ardiansyah' },
 
 
     // Wedding
@@ -172,6 +174,9 @@ const Projects: React.FC = () => {
     { id: 'p52', type: 'photo', title: 'Levrita & Bagas', category: 'Couples', src: '/images/LXR03742.jpg', description: 'for Luxor Photoworks by Lucky Ardiansyah' },
     { id: 'p53', type: 'photo', title: 'Levrita & Bagas', category: 'Couples', src: '/images/LXR03761.jpg', description: 'for Luxor Photoworks by Lucky Ardiansyah' },
     { id: 'p54', type: 'photo', title: 'Levrita & Bagas', category: 'Couples', src: '/images/LXR03808.jpg', description: 'for Luxor Photoworks by Lucky Ardiansyah' },
+    { id: 'p55', type: 'photo', title: 'Prewedding', category: 'Couples', src: '/images/Prewedding_1.jpg', description: 'for Luxor Photoworks by Lucky Ardiansyah' },
+    { id: 'p56', type: 'photo', title: 'Prewedding', category: 'Couples', src: '/images/Prewedding_2.jpg', description: 'for Luxor Photoworks by Lucky Ardiansyah' },
+    { id: 'p57', type: 'photo', title: 'Prewedding', category: 'Couples', src: '/images/Prewedding_3.jpg', description: 'for Luxor Photoworks by Lucky Ardiansyah' },
 
     //Maternity
     { id: 'p60', type: 'photo', title: 'Maternity', category: 'Maternity', src: '/images/DSC09758.jpg', description: 'for Luxor Studio by Lucky Ardiansyah' },
@@ -179,6 +184,11 @@ const Projects: React.FC = () => {
     { id: 'p62', type: 'photo', title: 'Maternity', category: 'Maternity', src: '/images/DSC00186.jpg', description: 'for Luxor Studio by Lucky Ardiansyah' },
     { id: 'p63', type: 'photo', title: 'Maternity', category: 'Maternity', src: '/images/DSC09605.jpg', description: 'for Luxor Studio by Lucky Ardiansyah' },
     { id: 'p64', type: 'photo', title: 'Maternity', category: 'Maternity', src: '/images/DSC00188.jpg', description: 'for Luxor Studio by Lucky Ardiansyah' },
+    { id: 'p65', type: 'photo', title: 'Maternity', category: 'Maternity', src: '/images/DSC09606.jpg', description: 'for Luxor Studio by Lucky Ardiansyah' },
+
+    //Catalog
+    { id: 'p80', type: 'photo', title: 'Catalog', category: 'Catalog', src: '/images/DSC04115.jpg', description: 'for Luxor Studio by Lucky Ardiansyah' },
+    { id: 'p81', type: 'photo', title: 'Catalog', category: 'Catalog', src: '/images/DSC04328.jpg', description: 'for Luxor Studio by Lucky Ardiansyah' },
   ];
 
   // 4. Videography Data
