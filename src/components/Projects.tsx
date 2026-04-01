@@ -74,7 +74,7 @@ const Projects: React.FC = () => {
       description: 'A Netflix-style streaming platform showcasing movie and TV show trailers with advanced filtering, search, and personalized recommendations.',
       tech: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Node.js'],
       category: 'Entertainment Platform',
-      liveUrl: 'https://aglimpse-cinema.vercel.app/',
+      liveUrl: 'https://aglimpse-cinema.netlify.app/',
       status: 'live' as const,
       images: [
         '/project_images/Aglimpse.png',
